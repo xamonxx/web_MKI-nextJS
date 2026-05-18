@@ -26,13 +26,13 @@ export function GrowthPlanSection() {
         <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {growthPillars.map((item, index) => (
             <Reveal key={item.title} delay={index * 0.04}>
-            <article className="premium-card h-full p-6 hover:-translate-y-1 hover:shadow-soft">
-              <div className="inline-flex size-11 items-center justify-center rounded-2xl bg-orange-50 text-mki-orange">
-                <Icon name={item.icon} className="size-5" />
-              </div>
-              <h3 className="mt-6 text-lg font-black text-mki-charcoal">{item.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-mki-gray">{item.description}</p>
-            </article>
+              <article className="premium-card h-full p-6 hover:-translate-y-1 hover:shadow-soft">
+                <div className="inline-flex size-11 items-center justify-center rounded-2xl bg-orange-50 text-mki-orange">
+                  <Icon name={item.icon} className="size-5" />
+                </div>
+                <h3 className="mt-6 text-lg font-black text-mki-charcoal">{item.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-mki-gray">{item.description}</p>
+              </article>
             </Reveal>
           ))}
         </div>

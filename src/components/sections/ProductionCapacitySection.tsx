@@ -28,14 +28,14 @@ export function ProductionCapacitySection() {
           <div className="grid gap-4 sm:grid-cols-2">
             {productionMetrics.map((item, index) => (
               <Reveal key={item.label} delay={index * 0.04}>
-              <article className="premium-card group h-full p-6 hover:-translate-y-1 hover:shadow-soft">
-                <div className="inline-flex size-11 items-center justify-center rounded-2xl bg-mki-gradient text-white">
-                  <Icon name={item.icon} className="size-5" />
-                </div>
-                <div className="mt-6 text-3xl font-black text-mki-charcoal">{item.value}</div>
-                <h3 className="mt-2 text-base font-extrabold text-mki-charcoal">{item.label}</h3>
-                <p className="mt-3 text-sm leading-7 text-mki-gray">{item.description}</p>
-              </article>
+                <article className="premium-card group h-full p-6 hover:-translate-y-1 hover:shadow-soft">
+                  <div className="inline-flex size-11 items-center justify-center rounded-2xl bg-mki-gradient text-white">
+                    <Icon name={item.icon} className="size-5" />
+                  </div>
+                  <div className="mt-6 text-3xl font-black text-mki-charcoal">{item.value}</div>
+                  <h3 className="mt-2 text-base font-extrabold text-mki-charcoal">{item.label}</h3>
+                  <p className="mt-3 text-sm leading-7 text-mki-gray">{item.description}</p>
+                </article>
               </Reveal>
             ))}
           </div>

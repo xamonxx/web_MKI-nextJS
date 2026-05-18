@@ -184,7 +184,7 @@ export const workshopItems: WorkshopItem[] = [
   { group: "Bandung", name: "WS BI", location: "Bandung", capacity: "100 meter/bulan", capacityValue: 100, team: "8 orang", teamValue: 8 },
   { group: "Bandung", name: "WS FY", location: "Bandung", capacity: "150 meter/bulan", capacityValue: 150, team: "9 orang", teamValue: 9 },
   { group: "Bali", name: "WS AN", location: "Bali", capacity: "80 meter/bulan", capacityValue: 80, team: "5 orang", teamValue: 5 },
-  { group: "Bali", name: "WS IA", location: "Bali", capacity: "150 meter/bulan", capacityValue: 150, team: "6 orang", teamValue: 6 },
+  { group: "Bali", name: "WS IB", location: "Bali", capacity: "150 meter/bulan", capacityValue: 150, team: "6 orang", teamValue: 6 },
   { group: "Bali", name: "WS NO", location: "Bali", capacity: "200 meter/bulan", capacityValue: 200, team: "10 orang", teamValue: 10 },
   { group: "Bali", name: "WS RI", location: "Bali", capacity: "150 meter/bulan", capacityValue: 150, team: "10 orang", teamValue: 10 },
   { group: "Bali", name: "WS NK", location: "Bali", capacity: "50 meter/bulan", capacityValue: 50, team: "3 orang", teamValue: 3 },

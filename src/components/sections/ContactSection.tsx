@@ -20,9 +20,39 @@ export function ContactSection() {
     location: "",
     message: "",
   });
+  const [errors, setErrors] = useState({ name: "", phone: "" });
+
+  function handlePhoneChange(raw: string) {
+    // Hanya izinkan angka, +, spasi, dan tanda hubung
+    const filtered = raw.replace(/[^\d+\-\s]/g, "");
+    setForm((current) => ({ ...current, phone: filtered }));
+    const digits = filtered.replace(/[^\d]/g, "");
+    if (filtered && digits.length < 9) {
+      setErrors((e) => ({ ...e, phone: "Nomor WhatsApp minimal 9 digit angka." }));
+    } else {
+      setErrors((e) => ({ ...e, phone: "" }));
+    }
+  }
+
+  function handleNameChange(value: string) {
+    setForm((current) => ({ ...current, name: value }));
+    if (value && value.trim().length < 2) {
+      setErrors((e) => ({ ...e, name: "Nama minimal 2 karakter." }));
+    } else {
+      setErrors((e) => ({ ...e, name: "" }));
+    }
+  }
 
   function submitForm(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const newErrors = { name: "", phone: "" };
+    if (form.name.trim().length < 2) newErrors.name = "Nama minimal 2 karakter.";
+    const digits = form.phone.replace(/[^\d]/g, "");
+    if (digits.length < 9) newErrors.phone = "Nomor WhatsApp minimal 9 digit angka.";
+    if (newErrors.name || newErrors.phone) {
+      setErrors(newErrors);
+      return;
+    }
     window.open(createWhatsAppLink(form), "_blank", "noopener,noreferrer");
   }
 
@@ -56,17 +86,31 @@ export function ContactSection() {
                   required
                   value={form.name}
                   placeholder={contactSection.form.namePlaceholder}
-                  onChange={(event) => setForm((current) => ({ ...current, name: event.target.value }))}
+                  onChange={(event) => handleNameChange(event.target.value)}
+                  aria-describedby={errors.name ? "name-error" : undefined}
                 />
+                {errors.name && (
+                  <span id="name-error" className="text-xs font-semibold text-red-500">
+                    {errors.name}
+                  </span>
+                )}
               </label>
               <label className="grid gap-2 text-sm font-bold text-mki-charcoal">
                 {contactSection.form.phone}
                 <Input
                   required
+                  type="tel"
+                  inputMode="numeric"
                   value={form.phone}
                   placeholder={contactSection.form.phonePlaceholder}
-                  onChange={(event) => setForm((current) => ({ ...current, phone: event.target.value }))}
+                  onChange={(event) => handlePhoneChange(event.target.value)}
+                  aria-describedby={errors.phone ? "phone-error" : undefined}
                 />
+                {errors.phone && (
+                  <span id="phone-error" className="text-xs font-semibold text-red-500">
+                    {errors.phone}
+                  </span>
+                )}
               </label>
               <label className="grid gap-2 text-sm font-bold text-mki-charcoal">
                 {contactSection.form.category}
@@ -106,7 +150,7 @@ export function ContactSection() {
               <a className="flex min-w-0 gap-4 rounded-2xl bg-white/10 p-5 transition hover:bg-white/15" href={createWhatsAppLink()} target="_blank" rel="noreferrer">
                 <Phone className="mt-0.5 size-5 shrink-0 text-mki-orange" />
                 <span className="min-w-0 text-sm leading-7 text-white/75">
-                  <span className="block font-bold text-white">WhatsApp Utama</span>
+                  <span className="block font-bold text-white">Kontak Official</span>
                   <span className="break-words">{company.phone}</span>
                 </span>
               </a>
@@ -145,8 +189,8 @@ export function ContactSection() {
               />
             </span>
             <span className="text-center md:text-left">
-              <span className="block text-sm font-black uppercase tracking-[0.14em] text-mki-orange">QR Kontak Utama</span>
-              <span className="mt-3 block text-2xl font-black text-mki-charcoal">Hubungi WhatsApp Utama MKI</span>
+              <span className="block text-sm font-black uppercase tracking-[0.14em] text-mki-orange">QR Kontak Official</span>
+              <span className="mt-3 block text-2xl font-black text-mki-charcoal">Hubungi Kontak Official MKI</span>
               <span className="mt-3 block text-sm font-semibold leading-7 text-mki-gray">
                 Scan atau klik QR untuk membuka WhatsApp utama dan konsultasi kebutuhan interior.
               </span>

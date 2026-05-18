@@ -14,15 +14,8 @@ export function SocialProofSection() {
         />
         <div className="mt-12 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4">
           {clientLogos.map((item) => {
-            const CardWrapper = item.href ? "a" : "div";
-            return (
-              <CardWrapper
-                href={item.href}
-                target={item.href ? "_blank" : undefined}
-                rel={item.href ? "noopener noreferrer" : undefined}
-                className="group flex min-h-[216px] min-w-0 flex-col justify-between rounded-2xl border border-border bg-white p-5 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:border-orange-200 hover:shadow-soft"
-                key={item.name}
-              >
+            const cardContent = (
+              <>
                 <div className="mx-auto flex size-24 items-center justify-center overflow-hidden rounded-full border border-border bg-white shadow-[inset_0_0_0_1px_rgba(17,24,39,0.02)]">
                   {item.logo ? (
                     <Image
@@ -46,7 +39,19 @@ export function SocialProofSection() {
                   <h3 className="text-base font-extrabold leading-snug text-mki-charcoal">{item.name}</h3>
                   <p className="mt-2 text-sm font-medium text-mki-gray">{item.descriptor}</p>
                 </div>
-              </CardWrapper>
+              </>
+            );
+
+            const sharedClass = "group flex min-h-[216px] min-w-0 flex-col justify-between rounded-2xl border border-border bg-white p-5 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:border-orange-200 hover:shadow-soft";
+
+            return item.href ? (
+              <a key={item.name} href={item.href} target="_blank" rel="noopener noreferrer" className={sharedClass}>
+                {cardContent}
+              </a>
+            ) : (
+              <div key={item.name} className={sharedClass}>
+                {cardContent}
+              </div>
             );
           })}
         </div>

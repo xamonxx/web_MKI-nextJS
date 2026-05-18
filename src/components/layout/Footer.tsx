@@ -3,7 +3,7 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import { Logo } from "@/components/layout/Logo";
 import { company } from "@/constants/company";
 import { footerContent } from "@/constants/content";
-import { navigationItems } from "@/constants/navigation";
+import { footerNavItems } from "@/constants/navigation";
 import { services, partnerships } from "@/constants/content";
 import { createWhatsAppLink } from "@/lib/whatsapp";
 
@@ -18,7 +18,7 @@ export function Footer() {
         <div>
           <h3 className="text-sm font-extrabold text-white">{footerContent.quickLinks}</h3>
           <div className="mt-5 grid gap-3">
-            {navigationItems.slice(1, 6).map((item) => (
+            {footerNavItems.map((item) => (
               <Link className="text-sm text-white/60 transition hover:text-white" href={item.href} key={item.href}>
                 {item.label}
               </Link>
@@ -41,7 +41,7 @@ export function Footer() {
             <a className="flex min-w-0 gap-3 transition hover:text-white" href={createWhatsAppLink()} target="_blank" rel="noreferrer">
               <Phone className="mt-0.5 size-4 shrink-0 text-mki-orange" />
               <span className="min-w-0">
-                <span className="block text-xs font-bold uppercase tracking-wide text-white/40">WhatsApp Utama</span>
+                <span className="block text-xs font-bold uppercase tracking-wide text-white/40">Kontak Official</span>
                 <span className="block break-words">{company.phone}</span>
               </span>
             </a>

@@ -15,11 +15,12 @@ export type WhatsAppLinkOptions = {
 export function normalizePhoneNumber(phone: string) {
   const normalized = phone.replace(/[^\d]/g, "");
 
-  if (normalized.startsWith("0")) {
-    return `62${normalized.slice(1)}`;
-  }
+  if (!normalized) return "";
 
-  return normalized;
+  if (normalized.startsWith("62")) return normalized;
+  if (normalized.startsWith("0")) return `62${normalized.slice(1)}`;
+
+  return `62${normalized}`;
 }
 
 export function buildWhatsAppMessage(payload: WhatsAppPayload = {}) {

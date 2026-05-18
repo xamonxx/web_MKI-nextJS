@@ -8,16 +8,23 @@ type AnimatedValueProps = {
 };
 
 function parseValue(value: string) {
-  const match = value.match(/^([\d.]+)(.*)$/);
+  const match = value.match(/^([\d.,]+)(.*)$/);
 
-  if (!match) {
-    return null;
-  }
+  if (!match) return null;
 
-  return {
-    target: Number(match[1].replace(/\./g, "")),
-    suffix: match[2],
-  };
+  const rawNumber = match[1];
+  const suffix = match[2];
+
+  // Deteksi separator ribuan Indo: titik diikuti tepat 3 digit (e.g. "4.048", "2.690")
+  const isThousandSeparator = /^\d{1,3}(\.\d{3})*$/.test(rawNumber);
+
+  const target = isThousandSeparator
+    ? Number(rawNumber.replace(/\./g, ""))  // "4.048" → 4048
+    : Number(rawNumber.replace(/,/g, ".")); // "2,5"  → 2.5 (desimal)
+
+  if (Number.isNaN(target)) return null;
+
+  return { target, suffix, isDecimal: !isThousandSeparator && rawNumber.includes(",") };
 }
 
 export function AnimatedValue({ value }: AnimatedValueProps) {
@@ -25,37 +32,35 @@ export function AnimatedValue({ value }: AnimatedValueProps) {
   const isInView = useInView(ref, { once: true, amount: 0.7 });
   const shouldReduceMotion = useReducedMotion();
   const parsedValue = useMemo(() => parseValue(value), [value]);
-  const [currentValue, setCurrentValue] = useState(parsedValue ? 0 : Number.NaN);
+  const [currentValue, setCurrentValue] = useState(0);
 
   useEffect(() => {
-    if (!parsedValue || !isInView) {
-      return;
-    }
+    if (!parsedValue || !isInView) return;
 
-    const target = parsedValue.target;
+    const { target, isDecimal } = parsedValue;
 
     if (shouldReduceMotion) {
-      const animationFrame = requestAnimationFrame(() => setCurrentValue(target));
-      return () => cancelAnimationFrame(animationFrame);
+      const raf = requestAnimationFrame(() => setCurrentValue(target));
+      return () => cancelAnimationFrame(raf);
     }
 
-    let animationFrame = 0;
+    let raf = 0;
     const duration = 950;
     const start = performance.now();
 
     function animate(now: number) {
       const progress = Math.min((now - start) / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
-      setCurrentValue(Math.round(target * eased));
+      const raw = target * eased;
+      setCurrentValue(isDecimal ? Math.round(raw * 10) / 10 : Math.round(raw));
 
       if (progress < 1) {
-        animationFrame = requestAnimationFrame(animate);
+        raf = requestAnimationFrame(animate);
       }
     }
 
-    animationFrame = requestAnimationFrame(animate);
-
-    return () => cancelAnimationFrame(animationFrame);
+    raf = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(raf);
   }, [isInView, parsedValue, shouldReduceMotion]);
 
   if (!parsedValue) {
@@ -64,7 +69,9 @@ export function AnimatedValue({ value }: AnimatedValueProps) {
 
   return (
     <span ref={ref} aria-label={value}>
-      {currentValue.toLocaleString("id-ID")}
+      {parsedValue.isDecimal
+        ? currentValue.toLocaleString("id-ID", { minimumFractionDigits: 1, maximumFractionDigits: 1 })
+        : currentValue.toLocaleString("id-ID")}
       {parsedValue.suffix}
     </span>
   );
