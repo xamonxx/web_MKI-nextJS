@@ -1,0 +1,27 @@
+export const company = {
+  name: "PT Menuju Keindahan Indonesia",
+  shortName: "MKI",
+  tagline: "Interior Manufacturing & Execution Partner",
+  description:
+    "Perusahaan interior berbasis sistem produksi terstruktur untuk residential, komersial, arsitek, agensi, influencer, dan mitra bisnis.",
+  foundedYear: "2018",
+  phone: "+62 822-4035-2844",
+  partnershipPhone: "+62 852-8650-1515",
+  portfolioPhone: "+62 821-7408-3968",
+  email: "menujukeindahan@gmail.com",
+  alternativeEmail: "menujukeindahanindonesia@gmail.com",
+  instagram: "@mki.interior",
+  address: "Jl. Nasional III, Citatah, Kec. Cipatat, Kabupaten Bandung Barat, Jawa Barat 40554",
+  workshopAddress: "Kp. Cibogo RT 03/RW 04, Citatah, Kec. Cipatat, Kabupaten Bandung Barat, Jawa Barat 40554",
+  mapUrl: "https://www.google.com/maps/search/?api=1&query=Jl+Nasional+III+Citatah+Cipatat+Kabupaten+Bandung+Barat+Jawa+Barat+40554",
+  siteUrl: "https://mki-interior.co.id",
+  keywords: [
+    "interior bandung",
+    "jasa interior bandung",
+    "kitchen set bandung",
+    "custom interior",
+    "workshop interior",
+    "MKI Interior",
+    "PT Menuju Keindahan Indonesia",
+  ],
+};
