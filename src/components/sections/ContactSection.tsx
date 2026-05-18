@@ -128,29 +128,54 @@ export function ContactSection() {
             </div>
           </aside>
         </div>
-        <a
-          className="mt-6 grid gap-5 rounded-3xl border border-white/10 bg-white p-6 text-mki-charcoal shadow-soft md:grid-cols-[auto_1fr] md:items-center md:p-8"
-          href={createWhatsAppLink(undefined, { recipient: "partnership" })}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <span className="mx-auto flex w-full max-w-48 items-center justify-center rounded-2xl border border-border bg-white p-3 md:max-w-44">
-            <Image
-              src="/images/qr/whatsapp-kemitraan.png"
-              alt="QR WhatsApp kemitraan MKI"
-              width={320}
-              height={320}
-              className="aspect-square w-full object-contain"
-            />
-          </span>
-          <span className="text-center md:text-left">
-            <span className="block text-sm font-black uppercase tracking-[0.14em] text-mki-orange">QR Kemitraan</span>
-            <span className="mt-3 block text-2xl font-black text-mki-charcoal">Hubungi Tim Kemitraan MKI</span>
-            <span className="mt-3 block text-sm font-semibold leading-7 text-mki-gray">
-              Scan atau klik QR untuk membuka WhatsApp kemitraan dengan template pesan kerja sama.
+        <div className="mt-6 grid gap-6 lg:grid-cols-2">
+          <a
+            className="grid gap-5 rounded-3xl border border-white/10 bg-white p-6 text-mki-charcoal shadow-soft md:grid-cols-[auto_1fr] md:items-center md:p-8"
+            href={createWhatsAppLink()}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span className="mx-auto flex w-full max-w-48 items-center justify-center rounded-2xl border border-border bg-white p-3 md:max-w-44">
+              <Image
+                src="/images/qr/whatsapp-utama.png"
+                alt="QR WhatsApp utama MKI"
+                width={320}
+                height={320}
+                className="aspect-square w-full object-contain"
+              />
             </span>
-          </span>
-        </a>
+            <span className="text-center md:text-left">
+              <span className="block text-sm font-black uppercase tracking-[0.14em] text-mki-orange">QR Kontak Utama</span>
+              <span className="mt-3 block text-2xl font-black text-mki-charcoal">Hubungi WhatsApp Utama MKI</span>
+              <span className="mt-3 block text-sm font-semibold leading-7 text-mki-gray">
+                Scan atau klik QR untuk membuka WhatsApp utama dan konsultasi kebutuhan interior.
+              </span>
+            </span>
+          </a>
+          <a
+            className="grid gap-5 rounded-3xl border border-white/10 bg-white p-6 text-mki-charcoal shadow-soft md:grid-cols-[auto_1fr] md:items-center md:p-8"
+            href={createWhatsAppLink(undefined, { recipient: "partnership" })}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span className="mx-auto flex w-full max-w-48 items-center justify-center rounded-2xl border border-border bg-white p-3 md:max-w-44">
+              <Image
+                src="/images/qr/whatsapp-kemitraan.png"
+                alt="QR WhatsApp kemitraan MKI"
+                width={320}
+                height={320}
+                className="aspect-square w-full object-contain"
+              />
+            </span>
+            <span className="text-center md:text-left">
+              <span className="block text-sm font-black uppercase tracking-[0.14em] text-mki-orange">QR Kemitraan</span>
+              <span className="mt-3 block text-2xl font-black text-mki-charcoal">Hubungi Tim Kemitraan MKI</span>
+              <span className="mt-3 block text-sm font-semibold leading-7 text-mki-gray">
+                Scan atau klik QR untuk membuka WhatsApp kemitraan dengan template pesan kerja sama.
+              </span>
+            </span>
+          </a>
+        </div>
       </div>
     </section>
   );

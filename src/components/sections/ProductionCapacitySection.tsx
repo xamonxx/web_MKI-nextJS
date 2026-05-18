@@ -1,8 +1,17 @@
+import { Fragment } from "react";
 import { Icon } from "@/components/ui/icon";
 import { Reveal } from "@/components/sections/Reveal";
 import { productionMetrics, productionSection, workshopItems } from "@/constants/content";
 
 export function ProductionCapacitySection() {
+  const workshopGroups = Array.from(new Set(workshopItems.map((item) => item.group))).map((group) => {
+    const items = workshopItems.filter((item) => item.group === group);
+    const totalCapacity = items.reduce((total, item) => total + item.capacityValue, 0);
+    const totalTeam = items.reduce((total, item) => total + item.teamValue, 0);
+
+    return { group, items, totalCapacity, totalTeam };
+  });
+
   return (
     <section className="section-padding bg-white">
       <div className="container">
@@ -38,21 +47,41 @@ export function ProductionCapacitySection() {
             <p className="mt-1 text-xs leading-5 text-mki-gray">Ringkasan kapasitas dari company overview MKI.</p>
           </div>
           <div className="overflow-x-auto">
-            <table className="w-full min-w-[560px] text-left text-xs">
+            <table className="w-full min-w-[760px] text-left text-xs">
               <thead className="bg-mki-charcoal text-white">
                 <tr>
-                  <th className="px-4 py-3 font-extrabold md:px-5">Workshop</th>
+                  <th className="px-4 py-3 font-extrabold md:px-5">Area WS</th>
+                  <th className="px-4 py-3 font-extrabold md:px-5">Nama WS</th>
+                  <th className="px-4 py-3 font-extrabold md:px-5">Lokasi Daerah</th>
+                  <th className="px-4 py-3 font-extrabold md:px-5">Pekerja</th>
                   <th className="px-4 py-3 font-extrabold md:px-5">Kapasitas</th>
-                  <th className="px-4 py-3 font-extrabold md:px-5">Tim</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-border bg-white">
-                {workshopItems.map((item) => (
-                  <tr key={item.name} className="transition hover:bg-orange-50/60">
-                    <td className="px-4 py-2.5 font-bold text-mki-charcoal md:px-5">{item.name}</td>
-                    <td className="px-4 py-2.5 text-mki-gray md:px-5">{item.capacity}</td>
-                    <td className="px-4 py-2.5 text-mki-gray md:px-5">{item.team}</td>
-                  </tr>
+                {workshopGroups.map(({ group, items, totalCapacity, totalTeam }) => (
+                  <Fragment key={group}>
+                    <tr className="bg-orange-50">
+                      <td className="px-4 py-3 font-black uppercase tracking-[0.12em] text-mki-orange md:px-5" colSpan={5}>
+                        Data WS {group}
+                      </td>
+                    </tr>
+                    {items.map((item) => (
+                      <tr key={`${item.group}-${item.name}`} className="transition hover:bg-orange-50/60">
+                        <td className="px-4 py-2.5 font-bold text-mki-charcoal md:px-5">{item.group}</td>
+                        <td className="px-4 py-2.5 font-bold text-mki-charcoal md:px-5">{item.name}</td>
+                        <td className="px-4 py-2.5 text-mki-gray md:px-5">{item.location}</td>
+                        <td className="px-4 py-2.5 text-mki-gray md:px-5">{item.team}</td>
+                        <td className="px-4 py-2.5 text-mki-gray md:px-5">{item.capacity}</td>
+                      </tr>
+                    ))}
+                    <tr className="bg-green-50">
+                      <td className="px-4 py-2.5 font-black text-mki-charcoal md:px-5" colSpan={3}>
+                        Total Meteran {group}
+                      </td>
+                      <td className="px-4 py-2.5 font-black text-mki-charcoal md:px-5">{totalTeam} orang</td>
+                      <td className="px-4 py-2.5 font-black text-mki-charcoal md:px-5">{totalCapacity.toLocaleString("id-ID")} meter</td>
+                    </tr>
+                  </Fragment>
                 ))}
               </tbody>
             </table>

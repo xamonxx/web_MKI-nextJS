@@ -26,14 +26,14 @@ export const ctaLabels = {
 
 export const heroContent = {
   badge: "Since 2018",
-  title: "Bangun Interior Premium dengan Sistem Produksi Terstruktur",
+  title: "Wujudkan Interior Premium Terukur",
   description:
     "PT Menuju Keindahan Indonesia membantu klien, arsitek, agensi, dan influencer merealisasikan project interior dengan dukungan workshop aktif, tenaga ahli, kontrol kualitas, dan sistem produksi yang terstandarisasi.",
   imageAlt: "Interior premium modern sebagai representasi project MKI",
   image: siteImages.hero,
   miniStats: [
     { value: "4048+", label: "Project" },
-    { value: "13+", label: "Workshop" },
+    { value: "23", label: "Workshop" },
     { value: "150+", label: "Tenaga Ahli" },
   ],
 };
@@ -52,7 +52,7 @@ export const stats: StatItem[] = [
     icon: "users",
   },
   {
-    value: "13+",
+    value: "23",
     label: "Workshop Aktif",
     description: "Jaringan produksi aktif untuk kapasitas yang scalable.",
     icon: "factory",
@@ -87,7 +87,7 @@ export const aboutContent = {
   highlights: [
     "Sistem produksi dan instalasi terstruktur",
     "Kontrol kualitas dari workshop sampai final checking",
-    "13+ workshop aktif dengan kapasitas 2.365m/bulan",
+    "23 workshop aktif dengan kapasitas 2.690m/bulan",
     "150+ tenaga ahli produksi, finishing, dan instalasi",
     "Siap mendukung residential, komersial, dan kemitraan",
   ],
@@ -137,26 +137,26 @@ export const productionSection = {
   eyebrow: "Infrastructure",
   title: "Kekuatan Manufaktur MKI",
   description:
-    "Data company overview menunjukkan MKI bukan hanya vendor interior, tetapi sistem produksi dengan 13+ workshop aktif, kapasitas 2.365m per bulan, 88 personel workshop terdata, dan 150+ tenaga ahli lintas produksi sampai instalasi.",
+    "Data company overview menunjukkan MKI bukan hanya vendor interior, tetapi sistem produksi dengan 23 workshop aktif, kapasitas 2.690m per bulan, 156 personel workshop terdata, dan 150+ tenaga ahli lintas produksi sampai instalasi.",
   summary:
     "Infrastruktur ini membantu menjaga kecepatan eksekusi, konsistensi finishing, distribusi produksi, dan kontrol kualitas untuk project residential, komersial, arsitek, agensi, influencer, serta kemitraan skala besar.",
 };
 
 export const productionMetrics: ProductionMetric[] = [
   {
-    value: "2.365m",
+    value: "2.690m",
     label: "Kapasitas Produksi / Bulan",
     description: "Akumulasi kapasitas workshop aktif untuk mendukung volume project besar.",
     icon: "factory",
   },
   {
-    value: "13+",
+    value: "23",
     label: "Workshop Aktif",
     description: "Jaringan workshop terintegrasi dengan alur produksi dan instalasi.",
     icon: "building",
   },
   {
-    value: "88",
+    value: "156",
     label: "Personel Workshop Terdata",
     description: "Tim produksi inti dari data workshop company overview.",
     icon: "users",
@@ -170,19 +170,29 @@ export const productionMetrics: ProductionMetric[] = [
 ];
 
 export const workshopItems: WorkshopItem[] = [
-  { name: "Workshop A", capacity: "210m", team: "9 orang" },
-  { name: "Workshop B", capacity: "210m", team: "8 orang" },
-  { name: "Workshop C", capacity: "210m", team: "8 orang" },
-  { name: "Workshop D", capacity: "210m", team: "8 orang" },
-  { name: "Workshop E", capacity: "175m", team: "7 orang" },
-  { name: "Workshop F", capacity: "175m", team: "7 orang" },
-  { name: "Workshop G", capacity: "175m", team: "7 orang" },
-  { name: "Workshop H", capacity: "175m", team: "6 orang" },
-  { name: "Workshop I", capacity: "175m", team: "6 orang" },
-  { name: "Workshop J", capacity: "175m", team: "6 orang" },
-  { name: "Workshop K", capacity: "175m", team: "6 orang" },
-  { name: "Workshop L", capacity: "150m", team: "5 orang" },
-  { name: "Workshop M", capacity: "150m", team: "5 orang" },
+  { group: "Bandung", name: "WS AP", location: "Bandung", capacity: "200 meter/bulan", capacityValue: 200, team: "11 orang", teamValue: 11 },
+  { group: "Bandung", name: "WS EG", location: "Bandung", capacity: "70 meter/bulan", capacityValue: 70, team: "5 orang", teamValue: 5 },
+  { group: "Bandung", name: "WS EY", location: "Bandung", capacity: "150 meter/bulan", capacityValue: 150, team: "8 orang", teamValue: 8 },
+  { group: "Bandung", name: "WS AC", location: "Bandung", capacity: "60 meter/bulan", capacityValue: 60, team: "4 orang", teamValue: 4 },
+  { group: "Bandung", name: "WS BA", location: "Bandung", capacity: "100 meter/bulan", capacityValue: 100, team: "7 orang", teamValue: 7 },
+  { group: "Bandung", name: "WS IA", location: "Bandung", capacity: "250 meter/bulan", capacityValue: 250, team: "12 orang", teamValue: 12 },
+  { group: "Bandung", name: "WS IN", location: "Bandung", capacity: "80 meter/bulan", capacityValue: 80, team: "6 orang", teamValue: 6 },
+  { group: "Bandung", name: "WS UN", location: "Bandung", capacity: "150 meter/bulan", capacityValue: 150, team: "7 orang", teamValue: 7 },
+  { group: "Bandung", name: "WS BL", location: "Bandung", capacity: "100 meter/bulan", capacityValue: 100, team: "4 orang", teamValue: 4 },
+  { group: "Bandung", name: "WS SP", location: "Bandung", capacity: "100 meter/bulan", capacityValue: 100, team: "7 orang", teamValue: 7 },
+  { group: "Bandung", name: "WS UP", location: "Bandung", capacity: "50 meter/bulan", capacityValue: 50, team: "5 orang", teamValue: 5 },
+  { group: "Bandung", name: "WS BI", location: "Bandung", capacity: "100 meter/bulan", capacityValue: 100, team: "8 orang", teamValue: 8 },
+  { group: "Bandung", name: "WS FY", location: "Bandung", capacity: "150 meter/bulan", capacityValue: 150, team: "9 orang", teamValue: 9 },
+  { group: "Bali", name: "WS AN", location: "Bali", capacity: "80 meter/bulan", capacityValue: 80, team: "5 orang", teamValue: 5 },
+  { group: "Bali", name: "WS IA", location: "Bali", capacity: "150 meter/bulan", capacityValue: 150, team: "6 orang", teamValue: 6 },
+  { group: "Bali", name: "WS NO", location: "Bali", capacity: "200 meter/bulan", capacityValue: 200, team: "10 orang", teamValue: 10 },
+  { group: "Bali", name: "WS RI", location: "Bali", capacity: "150 meter/bulan", capacityValue: 150, team: "10 orang", teamValue: 10 },
+  { group: "Bali", name: "WS NK", location: "Bali", capacity: "50 meter/bulan", capacityValue: 50, team: "3 orang", teamValue: 3 },
+  { group: "Parahyangan Timur", name: "WS AD", location: "Garut", capacity: "50 meter/bulan", capacityValue: 50, team: "5 orang", teamValue: 5 },
+  { group: "Parahyangan Timur", name: "WS RT", location: "Tasikmalaya", capacity: "150 meter/bulan", capacityValue: 150, team: "9 orang", teamValue: 9 },
+  { group: "Parahyangan Timur", name: "WS AS", location: "Banjar", capacity: "100 meter/bulan", capacityValue: 100, team: "6 orang", teamValue: 6 },
+  { group: "Parahyangan Timur", name: "WS HA", location: "Garut", capacity: "50 meter/bulan", capacityValue: 50, team: "3 orang", teamValue: 3 },
+  { group: "Parahyangan Timur", name: "WS UR", location: "Garut", capacity: "150 meter/bulan", capacityValue: 150, team: "6 orang", teamValue: 6 },
 ];
 
 export const portfolioCategories: PortfolioCategory[] = [
@@ -267,7 +277,7 @@ export const partnerships: PartnershipItem[] = [
     ],
     metrics: [
       { value: "4.048+", label: "project selesai" },
-      { value: "2.365m", label: "kapasitas/bulan" },
+      { value: "2.690m", label: "kapasitas/bulan" },
       { value: "150+", label: "tenaga ahli" },
     ],
   },
@@ -291,7 +301,7 @@ export const partnerships: PartnershipItem[] = [
     ],
     metrics: [
       { value: "62+", label: "account/mitra" },
-      { value: "13+", label: "workshop aktif" },
+      { value: "23", label: "workshop aktif" },
       { value: "28", label: "kota coverage" },
     ],
   },
@@ -425,7 +435,7 @@ export const coverageSection = {
   highlights: [
     { value: "28 Kota", label: "Jangkauan Project" },
     { value: "3 Provinsi", label: "Area Operasional" },
-    { value: "13+", label: "Workshop Aktif" },
+    { value: "23", label: "Workshop Aktif" },
     { value: "150+", label: "Tenaga Produksi dan Instalasi" },
   ],
 };
@@ -579,7 +589,7 @@ export const faqs: FaqItem[] = [
   },
   {
     question: "Area mana saja yang dilayani?",
-    answer: "MKI memiliki jangkauan project di 28 kota/kabupaten dan 3 provinsi, dengan dukungan 13+ workshop aktif.",
+    answer: "MKI memiliki jangkauan project di 28 kota/kabupaten dan 3 provinsi, dengan dukungan 23 workshop aktif.",
   },
   {
     question: "Apa itu kemitraan exclusive area?",
@@ -589,7 +599,7 @@ export const faqs: FaqItem[] = [
   {
     question: "Seberapa besar kapasitas produksi MKI?",
     answer:
-      "Data company overview mencatat kapasitas produksi 2.365m per bulan dari jaringan workshop aktif, didukung 88 personel workshop terdata dan 150+ tenaga ahli lintas produksi, finishing, dan instalasi.",
+      "Data company overview mencatat kapasitas produksi 2.690m per bulan dari jaringan workshop aktif, didukung 156 personel workshop terdata dan 150+ tenaga ahli lintas produksi, finishing, dan instalasi.",
   },
   {
     question: "Apakah MKI mendukung strategi konten influencer?",

@@ -69,9 +69,13 @@ export type ProductionMetric = {
 };
 
 export type WorkshopItem = {
+  group: "Bandung" | "Bali" | "Parahyangan Timur";
   name: string;
+  location: string;
   capacity: string;
+  capacityValue: number;
   team: string;
+  teamValue: number;
 };
 
 export type GrowthPillar = {

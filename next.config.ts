@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  allowedDevOrigins: ["192.168.1.55"],
   output: "export",
   images: {
     unoptimized: true,
@@ -8,13 +9,9 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "images.unsplash.com",
-
       },
     ],
   },
 };
 
 export default nextConfig;
-module.exports = {
-  allowedDevOrigins: ['192.168.1.55'],
-}
