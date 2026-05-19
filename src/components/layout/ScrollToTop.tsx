@@ -1,40 +1,48 @@
 "use client";
 
 import { ArrowUp } from "lucide-react";
-import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "motion/react";
-import { useState } from "react";
+import { useEffect, useRef } from "react";
 
+/**
+ * Scroll-to-top button with CSS transition for show/hide.
+ * No framer-motion — purely CSS opacity/transform, triggered by a passive scroll listener.
+ */
 export function ScrollToTop() {
-  const { scrollY } = useScroll();
-  const [isVisible, setIsVisible] = useState(false);
+  const btnRef = useRef<HTMLButtonElement>(null);
 
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    setIsVisible(latest > 520);
-  });
+  useEffect(() => {
+    const btn = btnRef.current;
+    if (!btn) return;
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
+    let ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const visible = window.scrollY > 520;
+        if (btn) {
+          btn.style.opacity = visible ? "1" : "0";
+          btn.style.pointerEvents = visible ? "auto" : "none";
+          btn.style.transform = visible ? "translateY(0) scale(1)" : "translateY(10px) scale(0.9)";
+        }
+        ticking = false;
+      });
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <AnimatePresence>
-      {isVisible ? (
-        <motion.button
-          initial={{ opacity: 0, y: 10, scale: 0.9 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 10, scale: 0.9 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={scrollToTop}
-          className="fixed bottom-20 right-4 z-40 flex size-12 items-center justify-center rounded-full bg-white border border-border shadow-soft text-mki-charcoal md:bottom-8 md:right-8 transition-colors hover:text-white hover:bg-mki-gradient hover:border-transparent hover:shadow-glow"
-          aria-label="Kembali ke atas"
-        >
-          <ArrowUp className="size-5 stroke-[2.5]" />
-        </motion.button>
-      ) : null}
-    </AnimatePresence>
+    <button
+      ref={btnRef}
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      className="fixed bottom-20 right-4 z-40 flex size-12 items-center justify-center rounded-full border border-border bg-white text-mki-charcoal shadow-soft transition-all duration-300 hover:border-transparent hover:bg-mki-gradient hover:text-white hover:shadow-glow md:bottom-8 md:right-8"
+      style={{ opacity: 0, pointerEvents: "none", transform: "translateY(10px) scale(0.9)" }}
+      aria-label="Kembali ke atas"
+    >
+      <ArrowUp className="size-5 stroke-[2.5]" />
+    </button>
   );
 }
+

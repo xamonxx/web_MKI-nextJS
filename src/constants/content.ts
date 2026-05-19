@@ -128,9 +128,9 @@ export const services: ServiceItem[] = [
 
 export const serviceSection = {
   eyebrow: "Layanan",
-  title: "Layanan Interior Kami",
+  title: "Layanan Interior Custom Bandung",
   description:
-    "Solusi interior custom untuk kebutuhan residential, komersial, dan project kemitraan dengan standar produksi terstruktur.",
+    "Solusi interior custom untuk kebutuhan residential, komersial, dan project kemitraan. Kitchen set, bedroom, wardrobe, living room, dan area bawah tangga dengan standar produksi terstruktur.",
 };
 
 export const productionSection = {
@@ -206,8 +206,8 @@ export const portfolioCategories: PortfolioCategory[] = [
 
 export const portfolioSection = {
   eyebrow: "Portfolio",
-  title: "Portfolio Interior",
-  description: "Beberapa kategori interior yang menjadi fokus produksi dan eksekusi MKI.",
+  title: "Portfolio Interior Custom MKI",
+  description: "Hasil nyata dari 4.048+ project interior — kitchen set, bedroom, living room, wardrobe, dan area bawah tangga yang telah dikerjakan di 28 kota Indonesia.",
 };
 
 export const portfolioItems: PortfolioItem[] = [
@@ -423,11 +423,11 @@ export const processSteps: ProcessStep[] = [
 
 export const coverageSection = {
   eyebrow: "Coverage",
-  title: "Jangkauan Operasional",
+  title: "Jangkauan Operasional 28 Kota, 3 Provinsi",
   description:
-    "Portfolio 2021-2026 mencatat jangkauan project MKI di 28 kota/kabupaten dan 3 provinsi. Coverage ini didukung workshop aktif untuk menjaga kapasitas pengerjaan, efisiensi produksi, logistik, dan kualitas hasil akhir.",
+    "Portfolio 2021-2026 mencatat jangkauan project MKI di 28 kota/kabupaten dan 3 provinsi (Jawa Barat, DKI Jakarta, Bali). Coverage ini didukung 23 workshop aktif untuk menjaga kapasitas pengerjaan, efisiensi produksi, dan kualitas hasil akhir.",
   image: siteImages.coverage,
-  imageAlt: "Interior modern sebagai visual area operasional MKI",
+  imageAlt: "Peta jangkauan operasional jasa interior MKI di 28 kota Indonesia",
   projectRecord: {
     title: "Rekam Jejak Project 2021-2026",
     description: "3.895 project pada periode 2021-2026 ditambah 153 project Januari-Februari 2026, membentuk total 4.048+ project.",

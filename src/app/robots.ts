@@ -5,10 +5,21 @@ export const dynamic = "force-static";
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: {
-      userAgent: "*",
-      allow: "/",
-    },
+    rules: [
+      {
+        // Allow all major crawlers
+        userAgent: "*",
+        allow: "/",
+        disallow: [
+          "/_next/",          // Next.js build artifacts
+          "/api/",            // API routes (none currently, future-proof)
+          "/admin/",          // Admin panel (none currently, future-proof)
+          "/*.json$",         // Raw JSON files
+        ],
+      },
+    ],
     sitemap: `${company.siteUrl}/sitemap.xml`,
+    host: company.siteUrl,
   };
 }
+

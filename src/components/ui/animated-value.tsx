@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useInView, useReducedMotion } from "motion/react";
 
 type AnimatedValueProps = {
   value: string;
@@ -29,39 +28,48 @@ function parseValue(value: string) {
 
 export function AnimatedValue({ value }: AnimatedValueProps) {
   const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.7 });
-  const shouldReduceMotion = useReducedMotion();
-  const parsedValue = useMemo(() => parseValue(value), [value]);
   const [currentValue, setCurrentValue] = useState(0);
+  const parsedValue = useMemo(() => parseValue(value), [value]);
 
   useEffect(() => {
-    if (!parsedValue || !isInView) return;
+    const el = ref.current;
+    if (!parsedValue || !el) return;
 
     const { target, isDecimal } = parsedValue;
+    // Native prefers-reduced-motion check — no motion library needed
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    if (shouldReduceMotion) {
-      const raf = requestAnimationFrame(() => setCurrentValue(target));
-      return () => cancelAnimationFrame(raf);
-    }
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        observer.unobserve(el);
 
-    let raf = 0;
-    const duration = 950;
-    const start = performance.now();
+        if (prefersReduced) {
+          setCurrentValue(target);
+          return;
+        }
 
-    function animate(now: number) {
-      const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      const raw = target * eased;
-      setCurrentValue(isDecimal ? Math.round(raw * 10) / 10 : Math.round(raw));
+        let raf = 0;
+        const duration = 950;
+        const start = performance.now();
 
-      if (progress < 1) {
+        function animate(now: number) {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const raw = target * eased;
+          setCurrentValue(isDecimal ? Math.round(raw * 10) / 10 : Math.round(raw));
+          if (progress < 1) raf = requestAnimationFrame(animate);
+        }
+
         raf = requestAnimationFrame(animate);
-      }
-    }
+        return () => cancelAnimationFrame(raf);
+      },
+      { threshold: 0.7 },
+    );
 
-    raf = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(raf);
-  }, [isInView, parsedValue, shouldReduceMotion]);
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [parsedValue]);
 
   if (!parsedValue) {
     return <span>{value}</span>;
@@ -76,3 +84,4 @@ export function AnimatedValue({ value }: AnimatedValueProps) {
     </span>
   );
 }
+

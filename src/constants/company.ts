@@ -3,7 +3,7 @@ export const company = {
   shortName: "MKI",
   tagline: "Interior Manufacturing & Execution Partner",
   description:
-    "Perusahaan interior berbasis sistem produksi terstruktur untuk residential, komersial, arsitek, agensi, influencer, dan mitra bisnis.",
+    "Jasa interior custom Bandung terpercaya sejak 2018. Kitchen set, bedroom, wardrobe, dan living room dengan 23 workshop aktif, 4.048+ project selesai, dan coverage 28 kota di Indonesia.",
   foundedYear: "2018",
   phone: "+62 822-4035-2844",
   partnershipPhone: "+62 852-8650-1515",
@@ -15,13 +15,30 @@ export const company = {
   workshopAddress: "Kp. Cibogo RT 03/RW 04, Citatah, Kec. Cipatat, Kabupaten Bandung Barat, Jawa Barat 40554",
   mapUrl: "https://www.google.com/maps/search/?api=1&query=Jl+Nasional+III+Citatah+Cipatat+Kabupaten+Bandung+Barat+Jawa+Barat+40554",
   siteUrl: "https://mki-interior.co.id",
+  logoUrl: "https://mki-interior.co.id/images/brand/mki-logo.png",
   keywords: [
-    "interior bandung",
+    // Primary — high intent local SEO
     "jasa interior bandung",
+    "interior bandung",
     "kitchen set bandung",
-    "custom interior",
-    "workshop interior",
+    "jasa interior custom bandung",
+    "interior rumah bandung",
+    // Secondary — service-specific
+    "kitchen set custom",
+    "bedroom interior custom",
+    "wardrobe custom bandung",
+    "living room backdrop bandung",
+    "interior bawah tangga",
+    // Informational / Broader
+    "workshop interior bandung",
+    "manufaktur interior indonesia",
+    "interior custom indonesia",
+    "kontraktor interior bandung",
+    "desain interior minimalis bandung",
+    // Brand
     "MKI Interior",
     "PT Menuju Keindahan Indonesia",
+    "MKI interior bandung",
   ],
 };
+

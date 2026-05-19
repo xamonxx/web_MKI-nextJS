@@ -1,7 +1,17 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { company } from "@/constants/company";
 import { notFoundContent } from "@/constants/content";
+
+// Prevent Google from indexing 404 pages — wastes crawl budget
+export const metadata: Metadata = {
+  title: `Halaman Tidak Ditemukan | ${company.shortName} Interior Bandung`,
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 export default function NotFound() {
   return (

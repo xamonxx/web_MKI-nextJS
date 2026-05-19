@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { useEffect, useRef } from "react";
 import type { ReactNode } from "react";
 
 type RevealProps = {
@@ -9,16 +9,37 @@ type RevealProps = {
   delay?: number;
 };
 
+/**
+ * CSS-only reveal animation using IntersectionObserver.
+ * Does NOT use framer-motion — keeps motion library out of the critical path.
+ * Elements start invisible (via CSS class) and become visible when in view.
+ */
 export function Reveal({ children, className, delay = 0 }: RevealProps) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.style.transitionDelay = `${delay}s`;
+          el.classList.add("reveal-visible");
+          observer.unobserve(el);
+        }
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" },
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [delay]);
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 28 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1], delay }}
-      className={className}
-    >
+    <div ref={ref} className={`reveal-hidden ${className ?? ""}`}>
       {children}
-    </motion.div>
+    </div>
   );
 }
+
