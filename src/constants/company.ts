@@ -14,8 +14,8 @@ export const company = {
   address: "Jl. Nasional III, Citatah, Kec. Cipatat, Kabupaten Bandung Barat, Jawa Barat 40554",
   workshopAddress: "Kp. Cibogo RT 03/RW 04, Citatah, Kec. Cipatat, Kabupaten Bandung Barat, Jawa Barat 40554",
   mapUrl: "https://www.google.com/maps/search/?api=1&query=Jl+Nasional+III+Citatah+Cipatat+Kabupaten+Bandung+Barat+Jawa+Barat+40554",
-  siteUrl: "https://mki-interior.co.id",
-  logoUrl: "https://mki-interior.co.id/images/brand/mki-logo.png",
+  siteUrl: "https://menujukeindahan.id",
+  logoUrl: "https://menujukeindahan.id/images/brand/mki-logo.png",
   keywords: [
     // Primary — high intent local SEO
     "jasa interior bandung",
