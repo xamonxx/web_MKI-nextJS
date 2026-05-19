@@ -60,6 +60,16 @@ export function Footer() {
               <MapPin className="mt-0.5 size-4 shrink-0 text-mki-orange" />
               <span className="min-w-0 break-words">{company.address}</span>
             </a>
+            <div className="mt-1 overflow-hidden rounded-xl border border-white/10 bg-white/5 p-1">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.469204970671!2d107.42185029999999!3d-6.8342099!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68fd005d719239%3A0xe4732d5eaa2c7b24!2sPT%20MENUJU%20KEINDAHAN%20INDONESIA!5e0!3m2!1sen!2sid!4v1779176563147!5m2!1sen!2sid"
+                className="h-32 w-full rounded-lg border-0 opacity-80 transition hover:opacity-100"
+                allowFullScreen={false}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Peta Lokasi MKI"
+              />
+            </div>
           </div>
         </div>
       </div>
