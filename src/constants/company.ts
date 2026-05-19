@@ -13,7 +13,7 @@ export const company = {
   instagram: "@mki.interior",
   address: "Jl. Nasional III, Citatah, Kec. Cipatat, Kabupaten Bandung Barat, Jawa Barat 40554",
   workshopAddress: "Kp. Cibogo RT 03/RW 04, Citatah, Kec. Cipatat, Kabupaten Bandung Barat, Jawa Barat 40554",
-  mapUrl: "https://www.google.com/maps/search/?api=1&query=Jl+Nasional+III+Citatah+Cipatat+Kabupaten+Bandung+Barat+Jawa+Barat+40554",
+  mapUrl: "https://maps.app.goo.gl/AHaU7ocRP56QTZfx8",
   siteUrl: "https://menujukeindahan.id",
   logoUrl: "https://menujukeindahan.id/images/brand/mki-logo.png",
   keywords: [
