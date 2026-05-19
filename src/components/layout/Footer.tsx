@@ -10,7 +10,7 @@ import { createWhatsAppLink } from "@/lib/whatsapp";
 export function Footer() {
   return (
     <footer className="bg-mki-navy text-white">
-      <div className="container grid gap-10 py-14 md:grid-cols-2 xl:grid-cols-[1.4fr_0.8fr_0.8fr_1fr]">
+      <div className="container grid gap-10 py-14 md:grid-cols-2 xl:grid-cols-[1.3fr_0.6fr_0.6fr_1.5fr]">
         <div>
           <Logo dark fullText className="-ml-3" />
           <p className="mt-2 max-w-md text-sm leading-7 text-white/60">{company.description}</p>
@@ -63,7 +63,7 @@ export function Footer() {
             <div className="mt-1 overflow-hidden rounded-xl border border-white/10 bg-white/5 p-1">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.469204970671!2d107.42185029999999!3d-6.8342099!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68fd005d719239%3A0xe4732d5eaa2c7b24!2sPT%20MENUJU%20KEINDAHAN%20INDONESIA!5e0!3m2!1sen!2sid!4v1779176563147!5m2!1sen!2sid"
-                className="h-32 w-full rounded-lg border-0 opacity-80 transition hover:opacity-100"
+                className="h-[140px] w-full rounded-lg border-0 opacity-80 transition hover:opacity-100"
                 allowFullScreen={false}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
