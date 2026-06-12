@@ -37,13 +37,13 @@ const SheetContent = React.forwardRef<
     <SheetPrimitive.Content
       ref={ref}
       className={cn(
-        "fixed right-0 top-0 z-50 h-full w-[86vw] max-w-sm overflow-y-auto border-l border-border bg-white p-6 shadow-soft outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:slide-in-from-right data-[state=closed]:slide-out-to-right",
+        "fixed right-0 top-0 z-50 h-full w-[86vw] max-w-sm overflow-y-auto border-l border-border bg-card p-6 shadow-soft outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:slide-in-from-right data-[state=closed]:slide-out-to-right",
         className,
       )}
       {...props}
     >
       {children}
-      <SheetPrimitive.Close className="absolute right-5 top-5 rounded-full p-2 text-mki-gray transition hover:bg-mki-soft hover:text-mki-charcoal">
+      <SheetPrimitive.Close className="absolute right-5 top-5 rounded-full p-2 text-muted-foreground transition hover:bg-secondary hover:text-foreground">
         <X className="size-5" />
         <span className="sr-only">Tutup menu</span>
       </SheetPrimitive.Close>

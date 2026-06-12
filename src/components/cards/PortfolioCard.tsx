@@ -14,7 +14,7 @@ export function PortfolioCard({ item }: PortfolioCardProps) {
   return (
     <Dialog>
       <DialogTrigger className="group w-full text-left">
-        <article className="overflow-hidden rounded-2xl border border-border bg-white shadow-soft">
+        <article className="overflow-hidden rounded-2xl border border-border bg-card shadow-soft">
           <div className="relative aspect-[4/3] overflow-hidden">
             <Image
               src={item.image}
@@ -26,13 +26,13 @@ export function PortfolioCard({ item }: PortfolioCardProps) {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-mki-navy/65 via-mki-navy/5 to-transparent" />
             <Badge className="absolute left-4 top-4 border-white/15 bg-white/90 text-mki-orange">{item.category}</Badge>
-            <div className="absolute bottom-4 right-4 inline-flex size-11 items-center justify-center rounded-full bg-white text-mki-charcoal shadow-sm">
+            <div className="absolute bottom-4 right-4 inline-flex size-11 items-center justify-center rounded-full bg-card text-foreground shadow-sm">
               <Eye className="size-5" />
             </div>
           </div>
           <div className="p-5">
-            <h3 className="text-lg font-extrabold text-mki-charcoal">{item.title}</h3>
-            <p className="mt-2 text-sm leading-6 text-mki-gray">{item.description}</p>
+            <h3 className="text-lg font-extrabold text-foreground">{item.title}</h3>
+            <p className="mt-2 text-sm leading-6 text-muted-foreground">{item.description}</p>
           </div>
         </article>
       </DialogTrigger>
@@ -43,8 +43,8 @@ export function PortfolioCard({ item }: PortfolioCardProps) {
         </div>
         <div className="px-2 pb-2 pt-4">
           <Badge>{item.category}</Badge>
-          <h3 className="mt-4 text-2xl font-extrabold text-mki-charcoal">{item.title}</h3>
-          <p className="mt-2 text-sm leading-7 text-mki-gray">{item.description}</p>
+          <h3 className="mt-4 text-2xl font-extrabold text-foreground">{item.title}</h3>
+          <p className="mt-2 text-sm leading-7 text-muted-foreground">{item.description}</p>
         </div>
       </DialogContent>
     </Dialog>

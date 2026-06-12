@@ -36,13 +36,13 @@ const DialogContent = React.forwardRef<
     <DialogPrimitive.Content
       ref={ref}
       className={cn(
-        "fixed left-1/2 top-1/2 z-50 max-h-[90vh] w-[92vw] max-w-4xl -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-3xl border border-white/20 bg-white p-4 shadow-soft outline-none data-[state=open]:animate-in data-[state=closed]:animate-out",
+        "fixed left-1/2 top-1/2 z-50 max-h-[90vh] w-[92vw] max-w-4xl -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-3xl border border-border bg-card p-4 shadow-soft outline-none data-[state=open]:animate-in data-[state=closed]:animate-out",
         className,
       )}
       {...props}
     >
       {children}
-      <DialogPrimitive.Close className="absolute right-4 top-4 rounded-full bg-white/90 p-2 text-mki-charcoal shadow-sm transition hover:bg-white">
+      <DialogPrimitive.Close className="absolute right-4 top-4 rounded-full bg-secondary p-2 text-foreground shadow-sm transition hover:bg-mki-gradient hover:text-white">
         <X className="size-5" />
         <span className="sr-only">Tutup preview</span>
       </DialogPrimitive.Close>

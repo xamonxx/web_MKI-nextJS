@@ -37,7 +37,7 @@ export function ScrollToTop() {
     <button
       ref={btnRef}
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-      className="fixed bottom-20 right-4 z-40 flex size-12 items-center justify-center rounded-full border border-border bg-white text-mki-charcoal shadow-soft transition-all duration-300 hover:border-transparent hover:bg-mki-gradient hover:text-white hover:shadow-glow md:bottom-8 md:right-8"
+      className="fixed bottom-20 right-4 z-40 flex size-12 items-center justify-center rounded-full border border-border bg-card text-foreground shadow-soft transition-all duration-300 hover:border-transparent hover:bg-mki-gradient hover:text-white hover:shadow-glow md:bottom-8 md:right-8"
       style={{ opacity: 0, pointerEvents: "none", transform: "translateY(10px) scale(0.9)" }}
       aria-label="Kembali ke atas"
     >

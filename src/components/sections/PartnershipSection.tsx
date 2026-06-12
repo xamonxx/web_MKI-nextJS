@@ -14,14 +14,10 @@ export function PartnershipSection() {
         className="absolute inset-0 z-0"
         style={{
           background: "#0B1220",
-          backgroundImage: `
-            radial-gradient(ellipse 80% 60% at 50% 0%, rgba(249, 115, 22, 0.25), transparent 70%),
-            radial-gradient(circle, rgba(255, 255, 255, 0.16) 1.5px, transparent 1.5px)
-          `,
-          backgroundSize: "100% 100%, 30px 30px",
-          backgroundPosition: "center, 0 0",
+          backgroundImage: `radial-gradient(ellipse 80% 60% at 50% 0%, rgba(249, 115, 22, 0.25), transparent 70%)`,
         }}
       />
+      <div className="absolute inset-0 z-0 pointer-events-none bg-pattern-dots-dark opacity-80" />
       <div className="container relative z-10">
         <SectionHeader
           eyebrow={partnershipSection.eyebrow}
@@ -69,16 +65,16 @@ export function PartnershipSection() {
                 </div>
                 <div className="grid gap-4 sm:grid-cols-2">
                   {item.points.map((point) => (
-                    <div key={point} className="rounded-2xl border border-white/10 bg-white p-5 shadow-soft">
+                    <div key={point} className="rounded-2xl border border-white/10 bg-white/95 p-5 shadow-soft dark:bg-white/10">
                       <CheckCircle2 className="mb-5 size-6 text-mki-orange" />
-                      <p className="text-sm font-bold leading-6 text-mki-charcoal">{point}</p>
+                      <p className="text-sm font-bold leading-6 text-mki-charcoal dark:text-white/90">{point}</p>
                     </div>
                   ))}
-                  <div className="rounded-2xl border border-white/10 bg-white p-5 shadow-soft sm:col-span-2">
+                  <div className="rounded-2xl border border-white/10 bg-white/95 p-5 shadow-soft sm:col-span-2 dark:bg-white/10">
                     <p className="text-sm font-black uppercase tracking-[0.14em] text-mki-orange">Output Kemitraan</p>
                     <div className="mt-4 grid gap-3 md:grid-cols-3">
                       {item.outcomes.map((outcome) => (
-                        <p key={outcome} className="text-sm font-semibold leading-6 text-mki-gray">
+                        <p key={outcome} className="text-sm font-semibold leading-6 text-mki-gray dark:text-white/70">
                           {outcome}
                         </p>
                       ))}

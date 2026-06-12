@@ -16,13 +16,13 @@ export function SectionHeader({ eyebrow, title, description, align = "center", d
       <h2
         className={cn(
           "mt-5 text-balance text-3xl font-extrabold tracking-normal md:text-5xl",
-          dark ? "text-white" : "text-mki-charcoal",
+          dark ? "text-white" : "text-foreground",
         )}
       >
         {title}
       </h2>
       {description ? (
-        <p className={cn("mt-5 text-base leading-8 md:text-lg", dark ? "text-white/70" : "text-mki-gray")}>{description}</p>
+        <p className={cn("mt-5 text-base leading-8 md:text-lg", dark ? "text-white/70" : "text-muted-foreground")}>{description}</p>
       ) : null}
     </div>
   );

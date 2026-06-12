@@ -38,7 +38,7 @@ export function FloatingCta() {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-x-3 bottom-3 z-40 grid grid-cols-2 gap-2 rounded-[1.75rem] border border-white/40 bg-white/90 p-2 shadow-soft backdrop-blur-xl transition-all duration-300 md:hidden"
+      className="fixed inset-x-3 bottom-3 z-40 grid grid-cols-2 gap-2 rounded-[1.75rem] border border-border bg-card/95 p-2 shadow-soft backdrop-blur-xl transition-all duration-300 md:hidden"
       style={{ opacity: 0, pointerEvents: "none", transform: "translateY(24px)" }}
     >
       <a
@@ -54,7 +54,7 @@ export function FloatingCta() {
         href={createWhatsAppLink({ category: ctaLabels.partnership }, { recipient: "partnership" })}
         target="_blank"
         rel="noreferrer"
-        className="inline-flex h-11 min-w-0 items-center justify-center gap-2 rounded-full border border-orange-200 bg-white px-3 text-xs font-extrabold text-mki-orange shadow-sm transition-transform active:scale-[0.97] min-[420px]:text-sm"
+        className="inline-flex h-11 min-w-0 items-center justify-center gap-2 rounded-full border border-border bg-secondary px-3 text-xs font-extrabold text-mki-orange shadow-sm transition-transform active:scale-[0.97] min-[420px]:text-sm"
       >
         <BriefcaseBusiness className="size-4 shrink-0" />
         <span className="truncate">{ctaLabels.partnership}</span>

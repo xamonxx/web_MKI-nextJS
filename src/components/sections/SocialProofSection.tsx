@@ -5,8 +5,9 @@ import { cn } from "@/lib/utils";
 
 export function SocialProofSection() {
   return (
-    <section className="section-padding bg-mki-soft">
-      <div className="container">
+    <section className="section-padding bg-secondary relative overflow-hidden">
+      <div className="absolute inset-0 z-0 pointer-events-none bg-pattern-dots opacity-80" />
+      <div className="container relative z-10">
         <SectionHeader
           eyebrow={socialProofSection.eyebrow}
           title={socialProofSection.title}
@@ -16,7 +17,7 @@ export function SocialProofSection() {
           {clientLogos.map((item) => {
             const cardContent = (
               <>
-                <div className="mx-auto flex size-24 items-center justify-center overflow-hidden rounded-full border border-border bg-white shadow-[inset_0_0_0_1px_rgba(17,24,39,0.02)]">
+                <div className="mx-auto flex size-24 items-center justify-center overflow-hidden rounded-full border border-border bg-card shadow-[inset_0_0_0_1px_rgba(17,24,39,0.02)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.02)]">
                   {item.logo ? (
                     <Image
                       src={item.logo}
@@ -30,19 +31,19 @@ export function SocialProofSection() {
                       )}
                     />
                   ) : (
-                    <span className="flex size-full items-center justify-center rounded-full bg-mki-soft text-lg font-black text-mki-charcoal">
+                    <span className="flex size-full items-center justify-center rounded-full bg-secondary text-lg font-black text-foreground">
                       {item.name.slice(0, 2).toUpperCase()}
                     </span>
                   )}
                 </div>
                 <div className="pt-5">
-                  <h3 className="text-base font-extrabold leading-snug text-mki-charcoal">{item.name}</h3>
-                  <p className="mt-2 text-sm font-medium text-mki-gray">{item.descriptor}</p>
+                  <h3 className="text-base font-extrabold leading-snug text-foreground">{item.name}</h3>
+                  <p className="mt-2 text-sm font-medium text-muted-foreground">{item.descriptor}</p>
                 </div>
               </>
             );
 
-            const sharedClass = "group flex min-h-[216px] min-w-0 flex-col justify-between rounded-2xl border border-border bg-white p-5 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:border-orange-200 hover:shadow-soft";
+            const sharedClass = "group flex min-h-[216px] min-w-0 flex-col justify-between rounded-2xl border border-border bg-card p-5 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:border-orange-200 hover:shadow-soft dark:hover:border-orange-900/50";
 
             return item.href ? (
               <a key={item.name} href={item.href} target="_blank" rel="noopener noreferrer" className={sharedClass}>

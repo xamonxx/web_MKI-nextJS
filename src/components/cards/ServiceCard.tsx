@@ -16,11 +16,11 @@ export function ServiceCard({ item, index }: ServiceCardProps) {
         </div>
         <span className="text-sm font-extrabold text-orange-200">{String(index + 1).padStart(2, "0")}</span>
       </div>
-      <h3 className="mt-8 text-xl font-extrabold text-mki-charcoal">{item.title}</h3>
-      <p className="mt-4 text-sm leading-7 text-mki-gray">{item.description}</p>
+      <h3 className="mt-8 text-xl font-extrabold text-foreground">{item.title}</h3>
+      <p className="mt-4 text-sm leading-7 text-muted-foreground">{item.description}</p>
       <div className="mt-5 flex flex-wrap gap-2">
         {item.details.map((detail) => (
-          <span key={detail} className="rounded-full bg-mki-soft px-3 py-1 text-xs font-bold text-mki-gray">
+          <span key={detail} className="rounded-full bg-secondary px-3 py-1 text-xs font-bold text-muted-foreground">
             {detail}
           </span>
         ))}

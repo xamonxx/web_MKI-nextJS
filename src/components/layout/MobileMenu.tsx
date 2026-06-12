@@ -23,7 +23,10 @@ export function MobileMenu() {
         <nav className="mt-10 grid gap-2">
           {navigationItems.map((item) => (
             <SheetClose asChild key={item.href}>
-              <Link href={item.href} className="rounded-2xl px-4 py-3 text-base font-bold text-mki-charcoal transition hover:bg-mki-soft">
+              <Link
+                href={item.href}
+                className="rounded-2xl px-4 py-3 text-base font-bold text-foreground transition hover:bg-secondary"
+              >
                 {item.label}
               </Link>
             </SheetClose>

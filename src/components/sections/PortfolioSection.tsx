@@ -9,8 +9,9 @@ import { SectionHeader } from "@/components/sections/SectionHeader";
 
 export function PortfolioSection() {
   return (
-    <section id="portfolio" className="section-padding bg-mki-soft">
-      <div className="container">
+    <section id="portfolio" className="section-padding bg-secondary relative overflow-hidden">
+      <div className="absolute inset-0 z-0 pointer-events-none bg-pattern-grid opacity-60" />
+      <div className="container relative z-10">
         <SectionHeader eyebrow={portfolioSection.eyebrow} title={portfolioSection.title} description={portfolioSection.description} />
         <Tabs defaultValue="All" className="mt-10">
           <div className="pb-2 sm:flex sm:justify-center">

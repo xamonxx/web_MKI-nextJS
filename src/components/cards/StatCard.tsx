@@ -12,11 +12,11 @@ export function StatCard({ item }: StatCardProps) {
       <div className="mb-6 inline-flex size-12 items-center justify-center rounded-2xl bg-orange-50 text-mki-orange transition group-hover:bg-mki-gradient group-hover:text-white">
         <Icon name={item.icon} className="size-6" />
       </div>
-      <div className="text-4xl font-extrabold text-mki-charcoal">
+      <div className="text-4xl font-extrabold text-foreground">
         <AnimatedValue value={item.value} />
       </div>
-      <div className="mt-2 text-base font-bold text-mki-charcoal">{item.label}</div>
-      <p className="mt-3 text-sm leading-6 text-mki-gray">{item.description}</p>
+      <div className="mt-2 text-base font-bold text-foreground">{item.label}</div>
+      <p className="mt-3 text-sm leading-6 text-muted-foreground">{item.description}</p>
     </div>
   );
 }

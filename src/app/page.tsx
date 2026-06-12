@@ -2,8 +2,6 @@ import dynamic from "next/dynamic";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { StatsSection } from "@/components/sections/StatsSection";
 
-// Eagerly load above-the-fold sections only.
-// Everything below is code-split and lazy-loaded after LCP is painted.
 const AboutSection = dynamic(() => import("@/components/sections/AboutSection").then((m) => ({ default: m.AboutSection })));
 const ProductionCapacitySection = dynamic(() => import("@/components/sections/ProductionCapacitySection").then((m) => ({ default: m.ProductionCapacitySection })));
 const ServicesSection = dynamic(() => import("@/components/sections/ServicesSection").then((m) => ({ default: m.ServicesSection })));

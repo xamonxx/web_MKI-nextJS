@@ -5,8 +5,9 @@ import { Reveal } from "@/components/sections/Reveal";
 
 export function WhyChooseUsSection() {
   return (
-    <section id="why-us" className="section-padding bg-white">
-      <div className="container">
+    <section id="why-us" className="section-padding bg-background relative overflow-hidden">
+      <div className="absolute inset-0 z-0 pointer-events-none bg-pattern-cross opacity-70" />
+      <div className="container relative z-10">
         <SectionHeader
           eyebrow={whyChooseSection.eyebrow}
           title={whyChooseSection.title}

@@ -7,6 +7,7 @@ import { ScrollProgress } from "@/components/layout/ScrollProgress";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { ScrollToTop } from "@/components/layout/ScrollToTop";
 import { FloatingCta } from "@/components/layout/FloatingCta";
+import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import { company } from "@/constants/company";
 import { heroContent } from "@/constants/content";
 import "./globals.css";
@@ -217,7 +218,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="id" className={plusJakarta.variable}>
+    <html lang="id" className={plusJakarta.variable} suppressHydrationWarning>
       <head>
         {/*
          * JSON-LD structured data — inline in <head> so Googlebot reads it on first crawl.
@@ -231,13 +232,15 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
         />
       </head>
       <body>
-        <ScrollProgress />
-        <SmoothScroll />
-        <Navbar />
-        {children}
-        <Footer />
-        <ScrollToTop />
-        <FloatingCta />
+        <ThemeProvider>
+          <ScrollProgress />
+          <SmoothScroll />
+          <Navbar />
+          {children}
+          <Footer />
+          <ScrollToTop />
+          <FloatingCta />
+        </ThemeProvider>
       </body>
     </html>
   );

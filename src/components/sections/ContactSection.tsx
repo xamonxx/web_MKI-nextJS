@@ -62,14 +62,10 @@ export function ContactSection() {
         className="absolute inset-0 z-0"
         style={{
           background: "#0B1220",
-          backgroundImage: `
-            radial-gradient(ellipse 80% 60% at 50% 0%, rgba(249, 115, 22, 0.25), transparent 70%),
-            radial-gradient(circle, rgba(255, 255, 255, 0.16) 1.5px, transparent 1.5px)
-          `,
-          backgroundSize: "100% 100%, 30px 30px",
-          backgroundPosition: "center, 0 0",
+          backgroundImage: `radial-gradient(ellipse 80% 60% at 50% 0%, rgba(249, 115, 22, 0.25), transparent 70%)`,
         }}
       />
+      <div className="absolute inset-0 z-0 pointer-events-none bg-pattern-dots-dark opacity-80" />
       <div className="container relative z-10">
         <SectionHeader
           eyebrow={contactSection.eyebrow}
@@ -78,9 +74,9 @@ export function ContactSection() {
           dark
         />
         <div className="mt-12 grid gap-6 lg:grid-cols-[1fr_0.78fr]">
-          <form className="rounded-3xl bg-white p-6 shadow-soft md:p-8" onSubmit={submitForm}>
+          <form className="rounded-3xl bg-card p-6 shadow-soft md:p-8" onSubmit={submitForm}>
             <div className="grid gap-4 md:grid-cols-2">
-              <label className="grid gap-2 text-sm font-bold text-mki-charcoal">
+              <label className="grid gap-2 text-sm font-bold text-foreground">
                 {contactSection.form.name}
                 <Input
                   required
@@ -95,7 +91,7 @@ export function ContactSection() {
                   </span>
                 )}
               </label>
-              <label className="grid gap-2 text-sm font-bold text-mki-charcoal">
+              <label className="grid gap-2 text-sm font-bold text-foreground">
                 {contactSection.form.phone}
                 <Input
                   required
@@ -112,7 +108,7 @@ export function ContactSection() {
                   </span>
                 )}
               </label>
-              <label className="grid gap-2 text-sm font-bold text-mki-charcoal">
+              <label className="grid gap-2 text-sm font-bold text-foreground">
                 {contactSection.form.category}
                 <Select value={form.category} onChange={(event) => setForm((current) => ({ ...current, category: event.target.value }))}>
                   {contactSection.categories.map((category) => (
@@ -122,7 +118,7 @@ export function ContactSection() {
                   ))}
                 </Select>
               </label>
-              <label className="grid gap-2 text-sm font-bold text-mki-charcoal">
+              <label className="grid gap-2 text-sm font-bold text-foreground">
                 {contactSection.form.location}
                 <Input
                   value={form.location}
@@ -130,7 +126,7 @@ export function ContactSection() {
                   onChange={(event) => setForm((current) => ({ ...current, location: event.target.value }))}
                 />
               </label>
-              <label className="grid gap-2 text-sm font-bold text-mki-charcoal md:col-span-2">
+              <label className="grid gap-2 text-sm font-bold text-foreground md:col-span-2">
                 {contactSection.form.message}
                 <Textarea
                   value={form.message}
@@ -174,12 +170,12 @@ export function ContactSection() {
         </div>
         <div className="mt-6 grid gap-6 lg:grid-cols-2">
           <a
-            className="grid gap-5 rounded-3xl border border-white/10 bg-white p-6 text-mki-charcoal shadow-soft md:grid-cols-[auto_1fr] md:items-center md:p-8"
+            className="grid gap-5 rounded-3xl border border-border bg-card p-6 text-foreground shadow-soft transition hover:border-orange-300 hover:shadow-glow dark:hover:border-orange-700 md:grid-cols-[auto_1fr] md:items-center md:p-8"
             href={createWhatsAppLink()}
             target="_blank"
             rel="noreferrer"
           >
-            <span className="mx-auto flex w-full max-w-48 items-center justify-center rounded-2xl border border-border bg-white p-3 md:max-w-44">
+            <span className="mx-auto flex w-full max-w-48 items-center justify-center rounded-2xl border border-border bg-background p-3 md:max-w-44">
               <Image
                 src="/images/qr/whatsapp-utama.png"
                 alt="QR WhatsApp utama MKI"
@@ -190,19 +186,19 @@ export function ContactSection() {
             </span>
             <span className="text-center md:text-left">
               <span className="block text-sm font-black uppercase tracking-[0.14em] text-mki-orange">QR Kontak Official</span>
-              <span className="mt-3 block text-2xl font-black text-mki-charcoal">Hubungi Kontak Official MKI</span>
-              <span className="mt-3 block text-sm font-semibold leading-7 text-mki-gray">
+              <span className="mt-3 block text-2xl font-black text-foreground">Hubungi Kontak Official MKI</span>
+              <span className="mt-3 block text-sm font-semibold leading-7 text-muted-foreground">
                 Scan atau klik QR untuk membuka WhatsApp utama dan konsultasi kebutuhan interior.
               </span>
             </span>
           </a>
           <a
-            className="grid gap-5 rounded-3xl border border-white/10 bg-white p-6 text-mki-charcoal shadow-soft md:grid-cols-[auto_1fr] md:items-center md:p-8"
+            className="grid gap-5 rounded-3xl border border-border bg-card p-6 text-foreground shadow-soft transition hover:border-orange-300 hover:shadow-glow dark:hover:border-orange-700 md:grid-cols-[auto_1fr] md:items-center md:p-8"
             href={createWhatsAppLink(undefined, { recipient: "partnership" })}
             target="_blank"
             rel="noreferrer"
           >
-            <span className="mx-auto flex w-full max-w-48 items-center justify-center rounded-2xl border border-border bg-white p-3 md:max-w-44">
+            <span className="mx-auto flex w-full max-w-48 items-center justify-center rounded-2xl border border-border bg-background p-3 md:max-w-44">
               <Image
                 src="/images/qr/whatsapp-kemitraan.png"
                 alt="QR WhatsApp kemitraan MKI"
@@ -213,8 +209,8 @@ export function ContactSection() {
             </span>
             <span className="text-center md:text-left">
               <span className="block text-sm font-black uppercase tracking-[0.14em] text-mki-orange">QR Kemitraan</span>
-              <span className="mt-3 block text-2xl font-black text-mki-charcoal">Hubungi Tim Kemitraan MKI</span>
-              <span className="mt-3 block text-sm font-semibold leading-7 text-mki-gray">
+              <span className="mt-3 block text-2xl font-black text-foreground">Hubungi Tim Kemitraan MKI</span>
+              <span className="mt-3 block text-sm font-semibold leading-7 text-muted-foreground">
                 Scan atau klik QR untuk membuka WhatsApp kemitraan dengan template pesan kerja sama.
               </span>
             </span>

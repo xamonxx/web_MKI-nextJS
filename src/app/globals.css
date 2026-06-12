@@ -24,6 +24,27 @@
     --radius: 1.5rem;
   }
 
+  /* ── Dark Mode Tokens ─────────────────────────────── */
+  .dark {
+    --background: 222 25% 8%;
+    --foreground: 220 20% 92%;
+    --card: 222 22% 11%;
+    --card-foreground: 220 20% 92%;
+    --primary: 23 96% 52%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 222 18% 16%;
+    --secondary-foreground: 220 20% 85%;
+    --muted: 222 18% 14%;
+    --muted-foreground: 220 12% 58%;
+    --accent: 23 96% 52%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 222 18% 18%;
+    --input: 222 18% 18%;
+    --ring: 23 96% 52%;
+  }
+
   * {
     @apply border-border;
   }
@@ -32,6 +53,24 @@
     scroll-behavior: smooth;
     scroll-padding-top: 84px;
     overflow-x: hidden;
+  }
+
+  /* Smooth color transition on theme change */
+  html,
+  body,
+  * {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-duration: 200ms;
+    transition-timing-function: ease;
+  }
+
+  /* Override so animations are not affected */
+  .animate-float,
+  .animate-float-slow,
+  .reveal-hidden,
+  .reveal-visible {
+    transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   body {
@@ -50,12 +89,13 @@
   }
 
   .eyebrow {
-    @apply inline-flex items-center rounded-full border border-orange-200 bg-orange-50 px-4 py-2 text-xs font-bold uppercase text-mki-orange;
+    @apply inline-flex items-center rounded-full border border-orange-200 bg-orange-50 px-4 py-2 text-xs font-bold uppercase text-mki-orange
+      dark:border-orange-800/50 dark:bg-orange-950/40 dark:text-orange-400;
   }
 
   .premium-card {
     /* Removed will-change-transform — was promoting every card to its own GPU layer unnecessarily */
-    @apply rounded-2xl border border-border bg-white shadow-soft transition duration-300;
+    @apply rounded-2xl border border-border bg-card shadow-soft transition duration-300;
   }
 
   .text-balance {
@@ -74,6 +114,79 @@
   .reveal-visible {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* ── Background Patterns ──────────────────────────────────────────────── */
+@layer utilities {
+
+  /* Dot pattern — small circles on a grid */
+  .bg-pattern-dots {
+    background-image: radial-gradient(
+      circle,
+      rgba(100, 116, 139, 0.45) 1.5px,
+      transparent 1.5px
+    );
+    background-size: 22px 22px;
+  }
+  .dark .bg-pattern-dots {
+    background-image: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.18) 1.5px,
+      transparent 1.5px
+    );
+  }
+
+  /* Grid pattern — horizontal + vertical lines */
+  .bg-pattern-grid {
+    background-image:
+      linear-gradient(to right,  rgba(100, 116, 139, 0.14) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(100, 116, 139, 0.14) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .dark .bg-pattern-grid {
+    background-image:
+      linear-gradient(to right,  rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  }
+
+  /* Dense small grid — for compact sections */
+  .bg-pattern-grid-sm {
+    background-image:
+      linear-gradient(to right,  rgba(100, 116, 139, 0.12) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(100, 116, 139, 0.12) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  .dark .bg-pattern-grid-sm {
+    background-image:
+      linear-gradient(to right,  rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  }
+
+  /* Dots for dark/glass sections (white dots on dark bg) */
+  .bg-pattern-dots-dark {
+    background-image: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.25) 1.5px,
+      transparent 1.5px
+    );
+    background-size: 26px 26px;
+  }
+
+  /* Cross / plus pattern */
+  .bg-pattern-cross {
+    background-image:
+      linear-gradient(to right,  rgba(100, 116, 139, 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(100, 116, 139, 0.1) 1px, transparent 1px),
+      radial-gradient(circle, rgba(100, 116, 139, 0.16) 1px, transparent 1px);
+    background-size: 40px 40px, 40px 40px, 40px 40px;
+    background-position: 0 0, 0 0, 20px 20px;
+  }
+  .dark .bg-pattern-cross {
+    background-image:
+      linear-gradient(to right,  rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      radial-gradient(circle, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
   }
 }
 
