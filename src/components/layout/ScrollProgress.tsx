@@ -15,8 +15,10 @@ export function ScrollProgress() {
     if (!bar) return;
 
     // Use native CSS Scroll-driven animation if supported (Chrome 115+, Edge 115+)
-    if ("ScrollTimeline" in window) {
-      const scrollTimeline = new (window as unknown as { ScrollTimeline: new (opts: object) => object }).ScrollTimeline({
+    const ScrollTimelineCtor = (window as unknown as { ScrollTimeline?: new (opts: object) => object })
+      .ScrollTimeline;
+    if (typeof ScrollTimelineCtor === "function") {
+      const scrollTimeline = new ScrollTimelineCtor({
         source: document.documentElement,
         axis: "block",
       });

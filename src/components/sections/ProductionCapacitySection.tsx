@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import { Icon } from "@/components/ui/icon";
 import { Reveal } from "@/components/sections/Reveal";
+import { Aurora } from "@/components/motion/Aurora";
 import { productionMetrics, productionSection, workshopItems } from "@/constants/content";
 
 export function ProductionCapacitySection() {
@@ -14,26 +15,29 @@ export function ProductionCapacitySection() {
 
   return (
     <section className="section-padding bg-background relative overflow-hidden">
+      <Aurora variant="soft" />
       <div className="absolute inset-0 z-0 pointer-events-none bg-pattern-grid-sm opacity-50" />
       <div className="container relative z-10">
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
           <Reveal>
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-mki-orange">{productionSection.eyebrow}</p>
-            <h2 className="mt-4 text-3xl font-black leading-tight text-foreground md:text-5xl">{productionSection.title}</h2>
+            <p className="eyebrow">{productionSection.eyebrow}</p>
+            <h2 className="mt-5 font-display text-3xl font-semibold leading-[1.1] tracking-tightest text-foreground md:text-5xl">
+              {productionSection.title}
+            </h2>
             <p className="mt-5 text-base leading-8 text-muted-foreground">{productionSection.description}</p>
-            <div className="mt-7 rounded-2xl border border-orange-200 bg-orange-50 p-5 text-sm font-semibold leading-7 text-foreground dark:border-orange-900/50 dark:bg-orange-950/30 dark:text-orange-100">
+            <div className="mt-7 rounded-2xl border border-mki-orange/20 bg-mki-orange/[0.06] p-5 text-sm font-semibold leading-7 text-foreground dark:text-orange-100">
               {productionSection.summary}
             </div>
           </Reveal>
 
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-4 [perspective:1200px] sm:grid-cols-2">
             {productionMetrics.map((item, index) => (
-              <Reveal key={item.label} delay={index * 0.04}>
-                <article className="premium-card group h-full p-6 hover:-translate-y-1 hover:shadow-soft">
-                  <div className="inline-flex size-11 items-center justify-center rounded-2xl bg-mki-gradient text-white">
+              <Reveal key={item.label} delay={index * 0.05}>
+                <article className="group h-full rounded-[1.4rem] border border-border bg-card p-6 shadow-soft transition-all duration-500 hover:-translate-y-1 hover:border-mki-orange/40">
+                  <div className="inline-flex size-11 items-center justify-center rounded-2xl bg-mki-gradient text-white shadow-glow">
                     <Icon name={item.icon} className="size-5" />
                   </div>
-                  <div className="mt-6 text-3xl font-black text-foreground">{item.value}</div>
+                  <div className="mt-6 font-display text-4xl font-semibold tracking-tightest text-foreground">{item.value}</div>
                   <h3 className="mt-2 text-base font-extrabold text-foreground">{item.label}</h3>
                   <p className="mt-3 text-sm leading-7 text-muted-foreground">{item.description}</p>
                 </article>

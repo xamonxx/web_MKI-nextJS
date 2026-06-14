@@ -9,6 +9,12 @@ const nextConfig: NextConfig = {
     unoptimized: true,
     formats: ["image/avif", "image/webp"],
   },
+  allowedDevOrigins: [
+    "192.168.18.12",
+    "100.105.166.15",
+    "localhost",
+    "127.0.0.1"
+  ],
   // Tree-shake icon/animation libraries — eliminates unused exports
   experimental: {
     optimizePackageImports: ["lucide-react", "motion"],

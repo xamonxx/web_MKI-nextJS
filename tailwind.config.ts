@@ -48,13 +48,18 @@ const config: Config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        /* ── MKI brand palette — modern slate grey & logo orange ── */
         mki: {
-          orange: "#E85D04",
-          red: "#C7351A",
-          charcoal: "#1F2933",
-          navy: "#111827",
-          gray: "#6B7280",
-          soft: "#F5F5F4",
+          orange: "#E5571F", // ember — refined primary accent
+          ember: "#F2682C", // brighter ember (gradients, glows)
+          red: "#B23A18", // deep clay — secondary warm accent
+          clay: "#9C3B1B",
+          charcoal: "#212529", // clean slate charcoal (from logo 'M')
+          navy: "#0F141C", // premium dark slate (from logo dark elements)
+          ink: "#151A22", // dark ink slate
+          gray: "#6C757D", // logo grey
+          soft: "#E9ECEF", // logo light silver soft grey
+          ivory: "#F8F9FA", // clean neutral off-white
         },
       },
       borderRadius: {
@@ -65,14 +70,21 @@ const config: Config = {
         "3xl": "1.75rem",
       },
       boxShadow: {
-        soft: "0 20px 50px rgba(17, 24, 39, 0.08)",
-        glow: "0 24px 70px rgba(232, 93, 4, 0.18)",
+        soft: "0 16px 40px -20px rgba(36, 30, 25, 0.08)",
+        glow: "0 16px 36px -12px rgba(242, 104, 44, 0.14)",
+        "inner-light": "inset 0 1px 0 0 rgba(255,255,255,0.55)",
       },
       fontFamily: {
         sans: ["var(--font-plus-jakarta)", "Inter", "system-ui", "sans-serif"],
+        display: ["var(--font-fraunces)", "Fraunces", "Georgia", "serif"],
+      },
+      letterSpacing: {
+        tightest: "-0.04em",
       },
       backgroundImage: {
-        "mki-gradient": "linear-gradient(135deg, #E85D04 0%, #C7351A 100%)",
+        "mki-gradient": "linear-gradient(135deg, #F2682C 0%, #B23A18 100%)",
+        "mki-radial": "radial-gradient(120% 120% at 0% 0%, #F2682C 0%, #B23A18 60%, #9C3B1B 100%)",
+        "noise": "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
       },
       keyframes: {
         "accordion-down": {
@@ -83,10 +95,24 @@ const config: Config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "aurora-drift": {
+          "0%, 100%": { transform: "translate3d(0,0,0) rotate(0deg) scale(1)" },
+          "33%": { transform: "translate3d(4%, -3%, 0) rotate(40deg) scale(1.15)" },
+          "66%": { transform: "translate3d(-3%, 4%, 0) rotate(-30deg) scale(0.95)" },
+        },
+        "marquee": {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-50%)" },
+        },
+        "shimmer": {
+          "100%": { transform: "translateX(100%)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "aurora-drift": "aurora-drift 22s ease-in-out infinite",
+        "marquee": "marquee var(--marquee-duration, 40s) linear infinite",
       },
     },
   },

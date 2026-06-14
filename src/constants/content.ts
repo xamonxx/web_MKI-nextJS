@@ -409,16 +409,16 @@ export const processSection = {
 };
 
 export const processSteps: ProcessStep[] = [
-  { step: "01", title: "Konsultasi kebutuhan" },
-  { step: "02", title: "Survey lokasi" },
-  { step: "03", title: "Pengukuran dan analisis ruang" },
-  { step: "04", title: "Desain atau validasi desain" },
-  { step: "05", title: "Penawaran dan persetujuan" },
-  { step: "06", title: "Produksi workshop" },
-  { step: "07", title: "Quality control" },
-  { step: "08", title: "Pengiriman dan instalasi" },
-  { step: "09", title: "Final checking" },
-  { step: "10", title: "Serah terima project" },
+  { step: "01", title: "Konsultasi kebutuhan", description: "Menggali kebutuhan, gaya, anggaran, dan target ruang Anda." },
+  { step: "02", title: "Survey lokasi", description: "Peninjauan kondisi lapangan secara langsung." },
+  { step: "03", title: "Pengukuran dan analisis ruang", description: "Pengukuran presisi dan analisis potensi ruang." },
+  { step: "04", title: "Desain atau validasi desain", description: "Penyusunan atau validasi desain agar sesuai konsep." },
+  { step: "05", title: "Penawaran dan persetujuan", description: "Rincian biaya, material, dan persetujuan lingkup kerja." },
+  { step: "06", title: "Produksi workshop", description: "Pengerjaan presisi di jaringan workshop aktif MKI." },
+  { step: "07", title: "Quality control", description: "Pemeriksaan kualitas sebelum keluar dari workshop." },
+  { step: "08", title: "Pengiriman dan instalasi", description: "Distribusi dan pemasangan yang rapi di lokasi." },
+  { step: "09", title: "Final checking", description: "Pengecekan akhir detail, fungsi, dan finishing." },
+  { step: "10", title: "Serah terima project", description: "Serah terima hasil akhir dan dokumentasi ke klien." },
 ];
 
 export const coverageSection = {
@@ -519,7 +519,7 @@ export const clientLogos: LogoItem[] = [
   {
     name: "Mewah Interior",
     descriptor: "Premium Interior Account",
-    logo: "/images/brand/Mewah interior.png",
+    logo: "/images/brand/Mewah interior.webp",
     href: "https://www.instagram.com/mewah.interior/",
   },
   {

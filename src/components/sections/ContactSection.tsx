@@ -8,6 +8,8 @@ import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { SectionHeader } from "@/components/sections/SectionHeader";
+import { Aurora } from "@/components/motion/Aurora";
+import { Magnetic } from "@/components/motion/Magnetic";
 import { company } from "@/constants/company";
 import { contactSection, ctaLabels } from "@/constants/content";
 import { createWhatsAppLink } from "@/lib/whatsapp";
@@ -57,15 +59,15 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="section-padding relative overflow-hidden bg-[#0B1220]">
+    <section id="contact" className="section-padding relative overflow-hidden bg-[#17110C]">
       <div
         className="absolute inset-0 z-0"
         style={{
-          background: "#0B1220",
-          backgroundImage: `radial-gradient(ellipse 80% 60% at 50% 0%, rgba(249, 115, 22, 0.25), transparent 70%)`,
+          backgroundImage: `radial-gradient(ellipse 80% 55% at 50% 0%, rgba(242, 104, 44, 0.08), transparent 70%)`,
         }}
       />
-      <div className="absolute inset-0 z-0 pointer-events-none bg-pattern-dots-dark opacity-80" />
+      <Aurora variant="ember" className="opacity-20" />
+      <div className="absolute inset-0 z-0 pointer-events-none bg-pattern-dots-dark opacity-50" />
       <div className="container relative z-10">
         <SectionHeader
           eyebrow={contactSection.eyebrow}
@@ -140,8 +142,8 @@ export function ContactSection() {
               {ctaLabels.sendWhatsApp}
             </Button>
           </form>
-          <aside className="rounded-3xl border border-white/10 bg-[#111827]/95 p-6 text-white shadow-[0_24px_90px_rgba(232,93,4,0.14),0_0_0_1px_rgba(249,115,22,0.05)] backdrop-blur-xl md:p-8">
-            <h3 className="text-2xl font-black">{contactSection.infoTitle}</h3>
+          <aside className="rounded-[1.75rem] border border-white/10 bg-[#1E160F]/90 p-6 text-white shadow-[0_28px_90px_rgba(242,104,44,0.16),0_0_0_1px_rgba(242,104,44,0.05)] backdrop-blur-xl md:p-8">
+            <h3 className="font-display text-2xl font-semibold">{contactSection.infoTitle}</h3>
             <div className="mt-8 grid gap-5">
               <a className="flex min-w-0 gap-4 rounded-2xl bg-white/10 p-5 transition hover:bg-white/15" href={createWhatsAppLink()} target="_blank" rel="noreferrer">
                 <Phone className="mt-0.5 size-5 shrink-0 text-mki-orange" />

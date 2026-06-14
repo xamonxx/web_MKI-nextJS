@@ -1,61 +1,83 @@
 import Image from "next/image";
 import { clientLogos, socialProofSection } from "@/constants/content";
 import { SectionHeader } from "@/components/sections/SectionHeader";
+import { VelocityMarquee } from "@/components/motion/VelocityMarquee";
+import { Parallax } from "@/components/motion/Parallax";
+import { Aurora } from "@/components/motion/Aurora";
 import { cn } from "@/lib/utils";
+import type { LogoItem } from "@/constants/types";
+
+function LogoChip({ item }: { item: LogoItem }) {
+  const inner = (
+    <>
+      <div className="flex size-16 shrink-0 items-center justify-center overflow-hidden rounded-full border border-border bg-card">
+        {item.logo ? (
+          <Image
+            src={item.logo}
+            alt={`Logo ${item.name}`}
+            width={64}
+            height={64}
+            className={cn(
+              "h-full w-full rounded-full object-center grayscale transition duration-500 group-hover/chip:grayscale-0",
+              item.logoFit === "cover" ? "object-cover" : "object-contain",
+              item.logoFit !== "cover" && item.logoPadding !== "none" && "p-2",
+            )}
+          />
+        ) : (
+          <span className="flex size-full items-center justify-center rounded-full bg-secondary text-sm font-black text-foreground">
+            {item.name.slice(0, 2).toUpperCase()}
+          </span>
+        )}
+      </div>
+      <div className="min-w-0">
+        <h3 className="truncate font-display text-base font-semibold text-foreground">{item.name}</h3>
+        <p className="mt-0.5 truncate text-xs font-medium text-muted-foreground">{item.descriptor}</p>
+      </div>
+    </>
+  );
+
+  const className =
+    "group/chip flex w-[16rem] shrink-0 items-center gap-4 rounded-2xl border border-border bg-card px-5 py-4 shadow-sm transition-colors duration-300 hover:border-mki-orange/40";
+
+  return item.href ? (
+    <a href={item.href} target="_blank" rel="noopener noreferrer" className={className}>
+      {inner}
+    </a>
+  ) : (
+    <div className={className}>{inner}</div>
+  );
+}
 
 export function SocialProofSection() {
+  const half = Math.ceil(clientLogos.length / 2);
+  const rowOne = clientLogos.slice(0, half);
+  const rowTwo = clientLogos.slice(half);
+
   return (
-    <section className="section-padding bg-secondary relative overflow-hidden">
-      <div className="absolute inset-0 z-0 pointer-events-none bg-pattern-dots opacity-80" />
+    <section className="section-padding bg-secondary/50 relative overflow-hidden">
+      <Aurora variant="soft" />
+      <div className="absolute inset-0 z-0 pointer-events-none bg-pattern-dots opacity-60" />
       <div className="container relative z-10">
-        <SectionHeader
-          eyebrow={socialProofSection.eyebrow}
-          title={socialProofSection.title}
-          description={socialProofSection.description}
-        />
-        <div className="mt-12 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4">
-          {clientLogos.map((item) => {
-            const cardContent = (
-              <>
-                <div className="mx-auto flex size-24 items-center justify-center overflow-hidden rounded-full border border-border bg-card shadow-[inset_0_0_0_1px_rgba(17,24,39,0.02)] dark:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.02)]">
-                  {item.logo ? (
-                    <Image
-                      src={item.logo}
-                      alt={`Logo ${item.name}`}
-                      width={96}
-                      height={96}
-                      className={cn(
-                        "h-full w-full rounded-full object-center grayscale transition duration-300 group-hover:scale-105 group-hover:grayscale-0",
-                        item.logoFit === "cover" ? "object-cover" : "object-contain",
-                        item.logoFit !== "cover" && item.logoPadding !== "none" && "p-3",
-                      )}
-                    />
-                  ) : (
-                    <span className="flex size-full items-center justify-center rounded-full bg-secondary text-lg font-black text-foreground">
-                      {item.name.slice(0, 2).toUpperCase()}
-                    </span>
-                  )}
-                </div>
-                <div className="pt-5">
-                  <h3 className="text-base font-extrabold leading-snug text-foreground">{item.name}</h3>
-                  <p className="mt-2 text-sm font-medium text-muted-foreground">{item.descriptor}</p>
-                </div>
-              </>
-            );
-
-            const sharedClass = "group flex min-h-[216px] min-w-0 flex-col justify-between rounded-2xl border border-border bg-card p-5 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:border-orange-200 hover:shadow-soft dark:hover:border-orange-900/50";
-
-            return item.href ? (
-              <a key={item.name} href={item.href} target="_blank" rel="noopener noreferrer" className={sharedClass}>
-                {cardContent}
-              </a>
-            ) : (
-              <div key={item.name} className={sharedClass}>
-                {cardContent}
-              </div>
-            );
-          })}
-        </div>
+        <Parallax distance={28}>
+          <SectionHeader
+            eyebrow={socialProofSection.eyebrow}
+            title={socialProofSection.title}
+            description={socialProofSection.description}
+            highlight={[2]}
+          />
+        </Parallax>
+      </div>
+      <div className="relative z-10 mt-14 flex flex-col gap-5">
+        <VelocityMarquee baseVelocity={1.0}>
+          {rowOne.map((item) => (
+            <LogoChip key={item.name} item={item} />
+          ))}
+        </VelocityMarquee>
+        <VelocityMarquee baseVelocity={-1.0}>
+          {rowTwo.map((item) => (
+            <LogoChip key={item.name} item={item} />
+          ))}
+        </VelocityMarquee>
       </div>
     </section>
   );

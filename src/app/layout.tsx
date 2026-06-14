@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans, Fraunces } from "next/font/google";
 import type { ReactNode } from "react";
+import Script from "next/script";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ScrollProgress } from "@/components/layout/ScrollProgress";
@@ -16,6 +17,15 @@ const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-plus-jakarta",
   display: "swap",
+});
+
+// Fraunces — characterful optical serif for display headings (editorial luxury)
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-fraunces",
+  display: "swap",
+  axes: ["opsz", "SOFT"],
+  style: ["normal", "italic"],
 });
 
 // SEO-optimized title: primary keyword first, brand second, under 60 chars
@@ -218,11 +228,10 @@ const jsonLd = {
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="id" className={plusJakarta.variable} suppressHydrationWarning>
+    <html lang="id" className={`${plusJakarta.variable} ${fraunces.variable}`} suppressHydrationWarning>
       <head>
         {/*
          * JSON-LD structured data — inline in <head> so Googlebot reads it on first crawl.
-         * NOT using next/script afterInteractive here because Googlebot needs it synchronously.
          */}
         <script
           id="json-ld-schema"
@@ -232,7 +241,9 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
         />
       </head>
       <body>
+        <Script src="/theme.js" strategy="beforeInteractive" />
         <ThemeProvider>
+          <div className="grain-overlay" aria-hidden />
           <ScrollProgress />
           <SmoothScroll />
           <Navbar />

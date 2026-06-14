@@ -98,6 +98,7 @@ export type FeatureItem = {
 export type ProcessStep = {
   step: string;
   title: string;
+  description?: string;
 };
 
 export type FaqItem = {

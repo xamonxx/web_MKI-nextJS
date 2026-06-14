@@ -5,19 +5,21 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ctaLabels, partnerships, partnershipSection } from "@/constants/content";
 import { SectionHeader } from "@/components/sections/SectionHeader";
+import { Aurora } from "@/components/motion/Aurora";
+import { Magnetic } from "@/components/motion/Magnetic";
 import { createWhatsAppLink } from "@/lib/whatsapp";
 
 export function PartnershipSection() {
   return (
-    <section id="partnership" className="section-padding relative min-h-screen overflow-hidden bg-black">
+    <section id="partnership" className="section-padding relative overflow-hidden bg-[#17110C]">
       <div
         className="absolute inset-0 z-0"
         style={{
-          background: "#0B1220",
-          backgroundImage: `radial-gradient(ellipse 80% 60% at 50% 0%, rgba(249, 115, 22, 0.25), transparent 70%)`,
+          backgroundImage: `radial-gradient(ellipse 80% 55% at 50% 0%, rgba(242, 104, 44, 0.08), transparent 70%)`,
         }}
       />
-      <div className="absolute inset-0 z-0 pointer-events-none bg-pattern-dots-dark opacity-80" />
+      <Aurora variant="ember" className="opacity-20" />
+      <div className="absolute inset-0 z-0 pointer-events-none bg-pattern-dots-dark opacity-60" />
       <div className="container relative z-10">
         <SectionHeader
           eyebrow={partnershipSection.eyebrow}
@@ -41,40 +43,45 @@ export function PartnershipSection() {
           </div>
           {partnerships.map((item) => (
             <TabsContent key={item.id} value={item.id}>
-              <div className="grid items-center gap-8 rounded-3xl border border-white/10 bg-[#111827]/95 p-6 shadow-[0_24px_90px_rgba(232,93,4,0.16),0_0_0_1px_rgba(249,115,22,0.06)] backdrop-blur-xl md:p-10 lg:grid-cols-[0.85fr_1fr]">
+              <div className="grid items-center gap-8 rounded-[1.75rem] border border-white/10 bg-[#1E160F]/90 p-6 shadow-[0_28px_90px_rgba(242,104,44,0.18),0_0_0_1px_rgba(242,104,44,0.06)] backdrop-blur-xl md:p-10 lg:grid-cols-[0.85fr_1fr]">
                 <div>
-                  <div className="inline-flex rounded-full bg-mki-gradient px-4 py-2 text-xs font-extrabold uppercase text-white">
+                  <div className="inline-flex rounded-full bg-mki-gradient px-4 py-2 text-xs font-extrabold uppercase tracking-wide text-white">
                     {item.label}
                   </div>
-                  <h3 className="mt-6 text-3xl font-black leading-tight text-white md:text-5xl">{item.title}</h3>
+                  <h3 className="mt-6 font-display text-3xl font-semibold leading-[1.08] tracking-tightest text-white md:text-5xl">
+                    {item.title}
+                  </h3>
                   <p className="mt-5 text-base leading-8 text-white/70">{item.description}</p>
                   <div className="mt-7 grid gap-3 sm:grid-cols-3">
                     {item.metrics.map((metric) => (
-                      <div key={metric.label} className="rounded-2xl border border-white/10 bg-white/10 p-4">
-                        <div className="text-2xl font-black text-white">{metric.value}</div>
-                        <div className="mt-1 text-xs font-bold uppercase leading-5 tracking-wide text-white/60">{metric.label}</div>
+                      <div key={metric.label} className="rounded-2xl border border-white/10 bg-white/[0.06] p-4 transition-colors hover:border-mki-orange/40">
+                        <div className="font-display text-2xl font-semibold text-white">{metric.value}</div>
+                        <div className="mt-1 text-xs font-bold uppercase leading-5 tracking-wide text-white/55">{metric.label}</div>
                       </div>
                     ))}
                   </div>
-                  <Button asChild className="mt-8" size="lg">
-                    <a href={createWhatsAppLink({ category: item.label }, { recipient: "partnership" })} target="_blank" rel="noreferrer">
-                      <MessageCircle className="size-5" />
-                      {ctaLabels.partnership}
-                    </a>
-                  </Button>
+                  <Magnetic className="mt-8 inline-block">
+                    <Button asChild size="lg">
+                      <a href={createWhatsAppLink({ category: item.label }, { recipient: "partnership" })} target="_blank" rel="noreferrer">
+                        <MessageCircle className="size-5" />
+                        {ctaLabels.partnership}
+                      </a>
+                    </Button>
+                  </Magnetic>
                 </div>
                 <div className="grid gap-4 sm:grid-cols-2">
                   {item.points.map((point) => (
-                    <div key={point} className="rounded-2xl border border-white/10 bg-white/95 p-5 shadow-soft dark:bg-white/10">
+                    <div key={point} className="rounded-2xl border border-white/10 bg-white/[0.05] p-5 transition-colors hover:border-mki-orange/30">
                       <CheckCircle2 className="mb-5 size-6 text-mki-orange" />
-                      <p className="text-sm font-bold leading-6 text-mki-charcoal dark:text-white/90">{point}</p>
+                      <p className="text-sm font-bold leading-6 text-white/90">{point}</p>
                     </div>
                   ))}
-                  <div className="rounded-2xl border border-white/10 bg-white/95 p-5 shadow-soft sm:col-span-2 dark:bg-white/10">
-                    <p className="text-sm font-black uppercase tracking-[0.14em] text-mki-orange">Output Kemitraan</p>
+                  <div className="rounded-2xl border border-white/10 bg-white/[0.05] p-5 sm:col-span-2">
+                    <p className="text-xs font-black uppercase tracking-[0.16em] text-mki-orange">Output Kemitraan</p>
                     <div className="mt-4 grid gap-3 md:grid-cols-3">
                       {item.outcomes.map((outcome) => (
-                        <p key={outcome} className="text-sm font-semibold leading-6 text-mki-gray dark:text-white/70">
+                        <p key={outcome} className="flex gap-2 text-sm font-semibold leading-6 text-white/70">
+                          <span className="mt-2 size-1.5 shrink-0 rounded-full bg-mki-orange" />
                           {outcome}
                         </p>
                       ))}

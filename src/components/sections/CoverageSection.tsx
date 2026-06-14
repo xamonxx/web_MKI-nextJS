@@ -2,6 +2,7 @@ import Image from "next/image";
 import { MapPin } from "lucide-react";
 import { SectionHeader } from "@/components/sections/SectionHeader";
 import { Reveal } from "@/components/sections/Reveal";
+import { Parallax } from "@/components/motion/Parallax";
 import { coverageCities, coverageSection } from "@/constants/content";
 
 export function CoverageSection() {
@@ -18,8 +19,11 @@ export function CoverageSection() {
           />
           <div className="mt-9 grid gap-4 sm:grid-cols-2">
             {coverageSection.highlights.map((item) => (
-              <div key={item.label} className="rounded-2xl border border-border bg-secondary p-5">
-                <div className="text-3xl font-black text-foreground">{item.value}</div>
+              <div
+                key={item.label}
+                className="rounded-2xl border border-border bg-card p-5 transition-colors hover:border-mki-orange/40"
+              >
+                <div className="font-display text-3xl font-semibold text-foreground">{item.value}</div>
                 <div className="mt-2 text-sm font-bold text-muted-foreground">{item.label}</div>
               </div>
             ))}
@@ -30,16 +34,20 @@ export function CoverageSection() {
           </div>
         </Reveal>
         <Reveal delay={0.1} className="relative">
-          <div className="relative overflow-hidden rounded-3xl shadow-soft">
-            <Image
-              src={coverageSection.image}
-              alt={coverageSection.imageAlt}
-              width={1200}
-              height={900}
-              className="aspect-[4/3] w-full object-cover"
-              loading="lazy"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-mki-navy/50 to-transparent" />
+          <div className="relative overflow-hidden rounded-[2rem] border border-border shadow-soft">
+            <div className="relative aspect-[4/3] w-full overflow-hidden">
+              <Parallax distance={32} className="absolute inset-0" innerClassName="absolute inset-0">
+                <Image
+                  src={coverageSection.image}
+                  alt={coverageSection.imageAlt}
+                  fill
+                  sizes="(min-width: 1024px) 46vw, 92vw"
+                  className="scale-110 object-cover"
+                  loading="lazy"
+                />
+              </Parallax>
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-mki-navy/55 to-transparent" />
             <div className="absolute bottom-5 left-5 right-5 rounded-2xl border border-white/20 bg-card/95 p-5 backdrop-blur">
               <div className="flex items-center gap-3">
                 <span className="inline-flex size-10 items-center justify-center rounded-full bg-mki-gradient text-white">

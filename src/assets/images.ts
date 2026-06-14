@@ -1,6 +1,6 @@
 export const siteImages = {
   hero: "/images/mki-catalog/hero.webp",
-  about: "/images/mki-catalog/putra-corporation-building.png",
+  about: "/images/mki-catalog/putra-corporation-building.webp",
   coverage: "/images/mki-catalog/coverage.webp",
   portfolio: {
     kitchen: "/images/mki-catalog/kitchen.webp",

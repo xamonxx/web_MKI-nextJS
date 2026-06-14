@@ -12,10 +12,11 @@ export function WhyChooseUsSection() {
           eyebrow={whyChooseSection.eyebrow}
           title={whyChooseSection.title}
           description={whyChooseSection.description}
+          highlight={[2]}
         />
-        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid gap-5 [perspective:1200px] md:grid-cols-2 lg:grid-cols-3">
           {features.map((item, index) => (
-            <Reveal key={item.title} delay={index * 0.04}>
+            <Reveal key={item.title} delay={index * 0.05}>
               <FeatureCard item={item} />
             </Reveal>
           ))}
