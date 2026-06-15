@@ -100,7 +100,7 @@ export function PortfolioPageClient() {
         {/* Portfolio Grid */}
         <main className="mt-10">
           {filteredItems.length > 0 ? (
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {filteredItems.map((item) => (
                 <PortfolioCard key={item.id} item={item} />
               ))}

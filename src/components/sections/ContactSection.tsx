@@ -9,7 +9,6 @@ import { Select } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { SectionHeader } from "@/components/sections/SectionHeader";
 import { Aurora } from "@/components/motion/Aurora";
-import { Magnetic } from "@/components/motion/Magnetic";
 import { company } from "@/constants/company";
 import { contactSection, ctaLabels } from "@/constants/content";
 import { createWhatsAppLink } from "@/lib/whatsapp";

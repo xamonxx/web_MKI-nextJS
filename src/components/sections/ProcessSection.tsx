@@ -75,7 +75,8 @@ function TimelineStep({ step, index, Icon, side, active, reached, reduce, onSele
                 transition: { duration: 0.5, delay: index * 0.04, ease: [0.22, 1, 0.36, 1] as const },
               })}
           className={cn(
-            "relative flex size-12 items-center justify-center rounded-2xl border transition-all duration-500",
+            // ring in the section bg color = a clean gap so the line never touches the icon
+            "relative flex size-12 items-center justify-center rounded-2xl border ring-[6px] ring-secondary transition-all duration-500",
             lit
               ? "border-transparent bg-mki-gradient text-white shadow-glow"
               : "border-border bg-card text-mki-orange",
@@ -156,7 +157,7 @@ export function ProcessSection() {
         currentReached = i;
       }
     }
-    setReached((prev) => Math.max(prev, currentReached));
+    setReached(currentReached);
     setActive(currentReached);
   });
 

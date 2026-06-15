@@ -26,7 +26,6 @@ export function FaqSection() {
       {/* FAQPage schema — enables expandable FAQ in Google search results */}
       <script
         type="application/ld+json"
-        // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <div className="container relative z-10 grid gap-10 lg:grid-cols-[0.82fr_1fr]">

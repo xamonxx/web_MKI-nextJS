@@ -9,6 +9,7 @@ import {
   useTransform,
   useMotionValue,
   useAnimationFrame,
+  type PanInfo,
 } from "motion/react";
 import { cn } from "@/lib/utils";
 import { useSafeReducedMotion } from "@/lib/motion";
@@ -44,39 +45,64 @@ export function VelocityMarquee({ children, baseVelocity = 3, className }: Veloc
   const x = useTransform(baseX, (v) => `${wrap(-25, 0, v)}%`);
   const directionFactor = useRef(1);
   const isHoveredRef = useRef(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useAnimationFrame((_, delta) => {
-    // Pause animation if hovered/touched
+    // Pause animation if hovered/touched/dragged
     if (isHoveredRef.current) return;
 
-    // Base auto-scroll always runs (gentle, decorative left/right drift).
-    let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
+    const isMobile = window.innerWidth < 768;
+    const activeAutoVelocity = isMobile ? 0 : baseVelocity;
+
+    // Base auto-scroll
+    let moveBy = directionFactor.current * activeAutoVelocity * (delta / 1000);
 
     // The scroll-velocity boost (the parallax part) is gated behind reduced motion.
     if (!reduce) {
-      if (velocityFactor.get() < 0) directionFactor.current = -1;
-      else if (velocityFactor.get() > 0) directionFactor.current = 1;
-      moveBy += directionFactor.current * moveBy * velocityFactor.get();
+      const currentVelocity = velocityFactor.get();
+      if (currentVelocity < 0) directionFactor.current = -1;
+      else if (currentVelocity > 0) directionFactor.current = 1;
+
+      // Maintain opposite parallax scroll directions based on baseVelocity sign
+      const velocityMultiplier = isMobile ? baseVelocity * 2.5 : activeAutoVelocity;
+      const scrollMove = directionFactor.current * velocityMultiplier * Math.abs(currentVelocity) * (delta / 1000);
+      
+      moveBy += scrollMove;
     }
 
     baseX.set(baseX.get() + moveBy);
   });
 
+  const handlePan = (event: PointerEvent | MouseEvent | TouchEvent, info: PanInfo) => {
+    isHoveredRef.current = true;
+    if (containerRef.current) {
+      const width = containerRef.current.offsetWidth;
+      if (width > 0) {
+        // Convert pixel delta to percentage
+        const deltaPercent = (info.delta.x / width) * 100;
+        baseX.set(baseX.get() + deltaPercent);
+      }
+    }
+  };
+
+  const handlePanEnd = () => {
+    setTimeout(() => {
+      isHoveredRef.current = false;
+    }, 150);
+  };
+
   return (
-    <div
-      className={cn("flex w-full overflow-hidden mask-fade-x", className)}
+    <motion.div
+      ref={containerRef}
+      className={cn("flex w-full overflow-hidden mask-fade-x cursor-grab active:cursor-grabbing select-none touch-pan-y", className)}
       onMouseEnter={() => {
         isHoveredRef.current = true;
       }}
       onMouseLeave={() => {
         isHoveredRef.current = false;
       }}
-      onTouchStart={() => {
-        isHoveredRef.current = true;
-      }}
-      onTouchEnd={() => {
-        isHoveredRef.current = false;
-      }}
+      onPan={handlePan}
+      onPanEnd={handlePanEnd}
     >
       <motion.div className="flex shrink-0 flex-nowrap gap-5 pr-5" style={{ x }}>
         {children}
@@ -84,6 +110,6 @@ export function VelocityMarquee({ children, baseVelocity = 3, className }: Veloc
         {children}
         {children}
       </motion.div>
-    </div>
+    </motion.div>
   );
 }

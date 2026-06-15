@@ -11,7 +11,6 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: "*",
         allow: "/",
         disallow: [
-          "/_next/",          // Next.js build artifacts
           "/api/",            // API routes (none currently, future-proof)
           "/admin/",          // Admin panel (none currently, future-proof)
           "/*.json$",         // Raw JSON files

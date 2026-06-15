@@ -60,10 +60,34 @@
     overflow-x: clip;
   }
 
-  /* Smooth color transition on theme change */
+  /* Smooth color transition on theme change — optimized to avoid '*' performance bottleneck */
   html,
   body,
-  * {
+  header,
+  footer,
+  main,
+  section,
+  nav,
+  aside,
+  article,
+  dialog,
+  button,
+  a,
+  h1, h2, h3, h4, h5, h6,
+  p,
+  span,
+  input,
+  select,
+  textarea,
+  svg,
+  path,
+  .bg-background,
+  .bg-card,
+  .bg-secondary,
+  .text-foreground,
+  .text-muted-foreground,
+  .border,
+  .border-border {
     transition-property: background-color, border-color, color, fill, stroke;
     transition-duration: 220ms;
     transition-timing-function: ease;
@@ -234,6 +258,15 @@
   .mask-fade-x {
     -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
     mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  }
+
+  /* Hide scrollbar utility */
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
   }
 }
 
