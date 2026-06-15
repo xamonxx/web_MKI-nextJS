@@ -29,7 +29,7 @@ const fraunces = Fraunces({
 });
 
 // SEO-optimized title: primary keyword first, brand second, under 60 chars
-const seoTitle = "Jasa Interior Custom Bandung | MKI – Kitchen Set, Bedroom & Wardrobe";
+const seoTitle = "PT Menuju Keindahan Indonesia | Jasa Interior Custom Bandung";
 
 // SEO-optimized description: keywords + proof + CTA, under 160 chars
 const seoDescription =
@@ -97,6 +97,13 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${company.siteUrl}/#website`,
+      "name": "PT Menuju Keindahan Indonesia",
+      "alternateName": ["MKI", "PT MKI"],
+      "url": company.siteUrl
+    },
     {
       "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
       "@id": `${company.siteUrl}/#organization`,
