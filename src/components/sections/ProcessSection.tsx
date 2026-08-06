@@ -1,20 +1,19 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, type ComponentType } from "react";
 import { motion, useScroll, useTransform, useMotionValueEvent } from "motion/react";
 import {
-  BadgeCheck,
-  Factory,
-  FileCheck2,
-  FileText,
-  Handshake,
-  MapPin,
-  MessageCircle,
-  PencilRuler,
-  Ruler,
-  SearchCheck,
-  type LucideIcon,
-} from "lucide-react";
+  IconCircleCheckFilled,
+  IconBuildingFactory2,
+  IconTruck,
+  IconFileText,
+  IconHeartHandshake,
+  IconMapPin,
+  IconMessageCircle,
+  IconRulerMeasure,
+  IconRuler,
+  IconSearch,
+} from "@tabler/icons-react";
 import { processSection, processSteps } from "@/constants/content";
 import { SectionHeader } from "@/components/sections/SectionHeader";
 import { Aurora } from "@/components/motion/Aurora";
@@ -22,23 +21,25 @@ import { useSafeReducedMotion } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 import type { ProcessStep } from "@/constants/types";
 
-const processIcons: LucideIcon[] = [
-  MessageCircle,
-  MapPin,
-  Ruler,
-  PencilRuler,
-  FileText,
-  Factory,
-  BadgeCheck,
-  FileCheck2,
-  SearchCheck,
-  Handshake,
+type StepIcon = ComponentType<{ className?: string }>;
+
+const processIcons: StepIcon[] = [
+  IconMessageCircle,
+  IconMapPin,
+  IconRuler,
+  IconRulerMeasure,
+  IconFileText,
+  IconBuildingFactory2,
+  IconCircleCheckFilled,
+  IconTruck,
+  IconSearch,
+  IconHeartHandshake,
 ];
 
 type TimelineStepProps = {
   step: ProcessStep;
   index: number;
-  Icon: LucideIcon;
+  Icon: StepIcon;
   side: "left" | "right";
   active: boolean;
   reached: boolean;
@@ -167,8 +168,6 @@ export function ProcessSection() {
           so the section can host a position:sticky progress indicator) */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <Aurora variant="soft" />
-        <div className="absolute inset-0 bg-pattern-grid opacity-[0.55]" />
-        <div className="absolute inset-0 bg-pattern-grid-sm opacity-30" />
         <div className="absolute -right-40 -top-40 h-96 w-96 rounded-full bg-mki-ember/10 blur-[110px]" />
       </div>
 
@@ -235,7 +234,7 @@ export function ProcessSection() {
               key={step.step}
               step={step}
               index={index}
-              Icon={processIcons[index] ?? BadgeCheck}
+              Icon={processIcons[index] ?? IconCircleCheckFilled}
               side={index % 2 === 0 ? "left" : "right"}
               active={active === index}
               reached={index <= reached}

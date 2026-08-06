@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUp } from "lucide-react";
+import { IconArrowUp } from "@tabler/icons-react";
 import { useEffect, useRef } from "react";
 
 /**
@@ -41,7 +41,7 @@ export function ScrollToTop() {
       style={{ opacity: 0, pointerEvents: "none", transform: "translateY(10px) scale(0.9)" }}
       aria-label="Kembali ke atas"
     >
-      <ArrowUp className="size-5 stroke-[2.5]" />
+      <IconArrowUp className="size-5" />
     </button>
   );
 }

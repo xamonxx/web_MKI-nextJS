@@ -1,7 +1,7 @@
 "use client";
 
 import * as SheetPrimitive from "@radix-ui/react-dialog";
-import { X } from "lucide-react";
+import { IconX } from "@tabler/icons-react";
 import * as React from "react";
 import { cn } from "@/lib/utils";
 
@@ -44,7 +44,7 @@ const SheetContent = React.forwardRef<
     >
       {children}
       <SheetPrimitive.Close className="absolute right-5 top-5 rounded-full p-2 text-muted-foreground transition hover:bg-secondary hover:text-foreground">
-        <X className="size-5" />
+        <IconX className="size-5" />
         <span className="sr-only">Tutup menu</span>
       </SheetPrimitive.Close>
     </SheetPrimitive.Content>

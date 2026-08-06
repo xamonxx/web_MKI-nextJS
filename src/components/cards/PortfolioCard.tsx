@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
-import { Eye, ChevronLeft, ChevronRight, MessageCircle } from "lucide-react";
+import { IconEye, IconChevronLeft, IconChevronRight, IconBrandWhatsapp } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "motion/react";
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
@@ -95,7 +95,7 @@ export function PortfolioCard({ item }: PortfolioCardProps) {
                 </div>
 
                 <div className="absolute bottom-4 right-4 inline-flex size-11 translate-y-2 items-center justify-center rounded-full bg-mki-gradient text-white opacity-0 shadow-glow transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-                  <Eye className="size-5" />
+                  <IconEye className="size-5" />
                 </div>
                 <div className="absolute bottom-4 left-4 right-16 translate-y-2 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
                   <h3 className="font-display text-lg font-semibold text-white drop-shadow">{item.title}</h3>
@@ -158,14 +158,14 @@ export function PortfolioCard({ item }: PortfolioCardProps) {
                   className="absolute left-3 top-1/2 flex size-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/40 text-white backdrop-blur-sm transition hover:scale-105 hover:bg-mki-gradient active:scale-95 sm:left-4"
                   aria-label="Foto Sebelumnya"
                 >
-                  <ChevronLeft className="size-5" />
+                  <IconChevronLeft className="size-5" />
                 </button>
                 <button
                   onClick={handleNext}
                   className="absolute right-3 top-1/2 flex size-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/40 text-white backdrop-blur-sm transition hover:scale-105 hover:bg-mki-gradient active:scale-95 sm:right-4"
                   aria-label="Foto Selanjutnya"
                 >
-                  <ChevronRight className="size-5" />
+                  <IconChevronRight className="size-5" />
                 </button>
               </>
             ) : null}
@@ -224,7 +224,7 @@ export function PortfolioCard({ item }: PortfolioCardProps) {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <MessageCircle className="size-4 sm:size-5" />
+                    <IconBrandWhatsapp className="size-4 sm:size-5" />
                     Diskusikan Project Ini
                   </a>
                 </Button>

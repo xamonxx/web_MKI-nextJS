@@ -1,7 +1,7 @@
 "use client";
 
 import * as DialogPrimitive from "@radix-ui/react-dialog";
-import { X } from "lucide-react";
+import { IconX } from "@tabler/icons-react";
 import * as React from "react";
 import { cn } from "@/lib/utils";
 
@@ -46,7 +46,7 @@ const DialogContent = React.forwardRef<
     >
       {children}
       <DialogPrimitive.Close className="absolute right-4 top-4 rounded-full bg-secondary p-2 text-foreground shadow-sm transition hover:bg-mki-gradient hover:text-white">
-        <X className="size-5" />
+        <IconX className="size-5" />
         <span className="sr-only">Tutup preview</span>
       </DialogPrimitive.Close>
     </DialogPrimitive.Content>

@@ -2,7 +2,9 @@
 
 import * as TabsPrimitive from "@radix-ui/react-tabs";
 import * as React from "react";
+import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
+import { useSafeReducedMotion } from "@/lib/motion";
 
 const Tabs = TabsPrimitive.Root;
 
@@ -36,9 +38,21 @@ TabsTrigger.displayName = TabsPrimitive.Trigger.displayName;
 const TabsContent = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.Content>
->(({ className, ...props }, ref) => (
-  <TabsPrimitive.Content ref={ref} className={cn("mt-8 outline-none", className)} {...props} />
-));
+>(({ className, children, ...props }, ref) => {
+  const reduce = useSafeReducedMotion();
+
+  return (
+    <TabsPrimitive.Content ref={ref} className={cn("mt-8 outline-none", className)} {...props}>
+      <motion.div
+        initial={reduce ? false : { opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+      >
+        {children}
+      </motion.div>
+    </TabsPrimitive.Content>
+  );
+});
 TabsContent.displayName = TabsPrimitive.Content.displayName;
 
 export { Tabs, TabsContent, TabsList, TabsTrigger };

@@ -22,14 +22,13 @@ export function FaqSection() {
 
   return (
     <section id="faq" className="section-padding bg-background relative overflow-hidden">
-      <div className="absolute inset-0 z-0 pointer-events-none bg-pattern-grid opacity-80" />
       {/* FAQPage schema — enables expandable FAQ in Google search results */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <div className="container relative z-10 grid gap-10 lg:grid-cols-[0.82fr_1fr]">
-        <SectionHeader eyebrow={faqSection.eyebrow} title={faqSection.title} description={faqSection.description} align="left" />
+        <SectionHeader title={faqSection.title} description={faqSection.description} align="left" />
         <div className="rounded-3xl border border-border bg-card px-6 shadow-soft md:px-8">
           <Accordion type="single" collapsible defaultValue="item-0">
             {faqs.map((item, index) => (

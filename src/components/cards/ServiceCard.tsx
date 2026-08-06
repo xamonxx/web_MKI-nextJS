@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUpRight } from "lucide-react";
+import { IconArrowUpRight } from "@tabler/icons-react";
 import { Icon } from "@/components/ui/icon";
 import { Tilt } from "@/components/motion/Tilt";
 import type { ServiceItem } from "@/constants/types";
@@ -37,7 +37,7 @@ export function ServiceCard({ item, index }: ServiceCardProps) {
           ))}
         </div>
         <div className="mt-8 inline-flex size-10 items-center justify-center rounded-full border border-border text-mki-orange transition-all duration-500 group-hover:border-mki-orange group-hover:bg-mki-orange group-hover:text-white">
-          <ArrowUpRight className="size-4 transition-transform duration-500 group-hover:rotate-45" />
+          <IconArrowUpRight className="size-4 transition-transform duration-500 group-hover:rotate-45" />
         </div>
       </article>
     </Tilt>

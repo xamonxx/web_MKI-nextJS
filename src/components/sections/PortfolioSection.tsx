@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { IconArrowRight } from "@tabler/icons-react";
 import { PortfolioCard } from "@/components/cards/PortfolioCard";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -12,7 +12,6 @@ import { SectionHeader } from "@/components/sections/SectionHeader";
 export function PortfolioSection() {
   return (
     <section id="portfolio" className="section-padding bg-secondary relative overflow-hidden">
-      <div className="absolute inset-0 z-0 pointer-events-none bg-pattern-grid opacity-60" />
       <div className="container relative z-10">
         <SectionHeader eyebrow={portfolioSection.eyebrow} title={portfolioSection.title} description={portfolioSection.description} />
         <Tabs defaultValue="All" className="mt-10">
@@ -46,7 +45,7 @@ export function PortfolioSection() {
           <Button asChild variant="secondary" size="lg" className="hover:text-mki-orange">
             <Link href="/portfolio">
               {ctaLabels.allPortfolio}
-              <ArrowRight className="size-5" />
+              <IconArrowRight className="size-5" />
             </Link>
           </Button>
         </div>

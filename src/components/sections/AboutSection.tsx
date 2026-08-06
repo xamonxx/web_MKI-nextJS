@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { CheckCircle2 } from "lucide-react";
+import { IconCircleCheck } from "@tabler/icons-react";
 import { SectionHeader } from "@/components/sections/SectionHeader";
 import { Reveal } from "@/components/sections/Reveal";
 import { Parallax } from "@/components/motion/Parallax";
@@ -10,8 +10,7 @@ export function AboutSection() {
   return (
     <section id="about" className="section-padding relative w-full overflow-hidden bg-background">
       <Aurora variant="soft" />
-      <div className="absolute inset-0 z-0 pointer-events-none bg-pattern-dots opacity-70" />
-      <div className="container relative z-10 grid items-center gap-12 lg:grid-cols-[0.92fr_1fr] lg:gap-16">
+      <div className="container relative z-10 grid items-center gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:gap-16">
         <Reveal>
           <div className="relative">
             {/* decorative frame */}
@@ -42,7 +41,6 @@ export function AboutSection() {
         </Reveal>
         <div>
           <SectionHeader
-            eyebrow={aboutContent.eyebrow}
             title={aboutContent.title}
             description={aboutContent.description}
             align="left"
@@ -52,7 +50,7 @@ export function AboutSection() {
             {aboutContent.highlights.map((item, index) => (
               <Reveal key={item} delay={index * 0.06}>
                 <div className="flex h-full items-center gap-3 rounded-2xl border border-border bg-card p-4 shadow-sm transition-colors hover:border-mki-orange/40">
-                  <CheckCircle2 className="size-5 shrink-0 text-mki-orange" />
+                  <IconCircleCheck className="size-5 shrink-0 text-mki-orange" />
                   <span className="text-sm font-bold text-foreground">{item}</span>
                 </div>
               </Reveal>

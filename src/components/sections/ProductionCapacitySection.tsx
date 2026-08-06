@@ -20,8 +20,7 @@ export function ProductionCapacitySection() {
       <div className="container relative z-10">
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
           <Reveal>
-            <p className="eyebrow">{productionSection.eyebrow}</p>
-            <h2 className="mt-5 font-display text-3xl font-semibold leading-[1.1] tracking-tightest text-foreground md:text-5xl">
+            <h2 className="font-display text-3xl font-semibold leading-[1.1] tracking-tightest text-foreground md:text-[3rem]">
               {productionSection.title}
             </h2>
             <p className="mt-5 text-base leading-8 text-muted-foreground">{productionSection.description}</p>
@@ -30,17 +29,23 @@ export function ProductionCapacitySection() {
             </div>
           </Reveal>
 
-          <div className="grid gap-4 [perspective:1200px] sm:grid-cols-2">
+          <div className="divide-y divide-border rounded-2xl border border-border bg-card">
             {productionMetrics.map((item, index) => (
               <Reveal key={item.label} delay={index * 0.05}>
-                <article className="group h-full rounded-[1.4rem] border border-border bg-card p-6 shadow-soft transition-all duration-500 hover:-translate-y-1 hover:border-mki-orange/40">
-                  <div className="inline-flex size-11 items-center justify-center rounded-2xl bg-mki-gradient text-white shadow-glow">
-                    <Icon name={item.icon} className="size-5" />
+                <div className="flex flex-col gap-4 p-5 sm:flex-row sm:items-center sm:gap-5 md:p-6">
+                  <div className="flex items-center gap-4 sm:contents">
+                    <div className="flex size-11 shrink-0 items-center justify-center rounded-2xl bg-mki-gradient text-white shadow-glow">
+                      <Icon name={item.icon} className="size-5" />
+                    </div>
+                    <div className="font-display text-3xl font-semibold tracking-tightest text-foreground sm:w-40 sm:shrink-0">
+                      {item.value}
+                    </div>
                   </div>
-                  <div className="mt-6 font-display text-4xl font-semibold tracking-tightest text-foreground">{item.value}</div>
-                  <h3 className="mt-2 text-base font-extrabold text-foreground">{item.label}</h3>
-                  <p className="mt-3 text-sm leading-7 text-muted-foreground">{item.description}</p>
-                </article>
+                  <div className="min-w-0">
+                    <h3 className="text-base font-extrabold text-foreground">{item.label}</h3>
+                    <p className="mt-1 text-sm leading-6 text-muted-foreground">{item.description}</p>
+                  </div>
+                </div>
               </Reveal>
             ))}
           </div>

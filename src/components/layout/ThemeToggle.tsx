@@ -1,6 +1,6 @@
 "use client";
 
-import { Moon, Sun } from "lucide-react";
+import { IconMoonStars, IconSun } from "@tabler/icons-react";
 import { useTheme } from "@/components/layout/ThemeProvider";
 import { useEffect, useState } from "react";
 
@@ -35,16 +35,16 @@ export function ThemeToggle() {
       className="relative flex size-9 items-center justify-center overflow-hidden rounded-full border border-border bg-background text-foreground shadow-sm transition-all duration-300 hover:border-mki-orange hover:bg-orange-50 hover:text-mki-orange hover:shadow-glow dark:hover:bg-orange-950/30"
     >
       {/* Sun icon */}
-      <Sun
-        className="absolute size-[18px] stroke-[2] transition-all duration-500"
+      <IconSun
+        className="absolute size-[18px] transition-all duration-500"
         style={{
           opacity: isDark ? 0 : 1,
           transform: isDark ? "rotate(-90deg) scale(0.5)" : "rotate(0deg) scale(1)",
         }}
       />
       {/* Moon icon */}
-      <Moon
-        className="absolute size-[18px] stroke-[2] transition-all duration-500"
+      <IconMoonStars
+        className="absolute size-[18px] transition-all duration-500"
         style={{
           opacity: isDark ? 1 : 0,
           transform: isDark ? "rotate(0deg) scale(1)" : "rotate(90deg) scale(0.5)",

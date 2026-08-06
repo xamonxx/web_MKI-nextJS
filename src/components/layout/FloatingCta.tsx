@@ -1,6 +1,6 @@
 "use client";
 
-import { BriefcaseBusiness, MessageCircle } from "lucide-react";
+import { IconBriefcase, IconBrandWhatsapp } from "@tabler/icons-react";
 import { useEffect, useRef } from "react";
 import { ctaLabels } from "@/constants/content";
 import { createWhatsAppLink } from "@/lib/whatsapp";
@@ -47,7 +47,7 @@ export function FloatingCta() {
         rel="noreferrer"
         className="inline-flex h-11 min-w-0 items-center justify-center gap-2 rounded-full bg-mki-gradient px-3 text-xs font-extrabold text-white shadow-glow transition-transform active:scale-[0.97] min-[420px]:text-sm"
       >
-        <MessageCircle className="size-4 shrink-0" />
+        <IconBrandWhatsapp className="size-4 shrink-0" />
         <span className="truncate">{ctaLabels.consult}</span>
       </a>
       <a
@@ -56,7 +56,7 @@ export function FloatingCta() {
         rel="noreferrer"
         className="inline-flex h-11 min-w-0 items-center justify-center gap-2 rounded-full border border-border bg-secondary px-3 text-xs font-extrabold text-mki-orange shadow-sm transition-transform active:scale-[0.97] min-[420px]:text-sm"
       >
-        <BriefcaseBusiness className="size-4 shrink-0" />
+        <IconBriefcase className="size-4 shrink-0" />
         <span className="truncate">{ctaLabels.partnership}</span>
       </a>
     </div>

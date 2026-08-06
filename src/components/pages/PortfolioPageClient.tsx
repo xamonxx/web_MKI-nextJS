@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { ArrowLeft, MessageCircle } from "lucide-react";
+import { IconArrowLeft, IconBrandWhatsapp } from "@tabler/icons-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { PortfolioCard } from "@/components/cards/PortfolioCard";
@@ -42,7 +42,7 @@ export function PortfolioPageClient() {
           href="/" 
           className="inline-flex items-center gap-2 text-sm font-bold text-muted-foreground hover:text-mki-orange transition-colors group mb-8"
         >
-          <ArrowLeft className="size-4 transition-transform group-hover:-translate-x-1" />
+          <IconArrowLeft className="size-4 transition-transform group-hover:-translate-x-1" />
           Kembali ke Beranda
         </Link>
 
@@ -127,7 +127,7 @@ export function PortfolioPageClient() {
             <div className="mt-8 flex justify-center">
               <Button asChild size="lg" className="shadow-glow">
                 <a href={createWhatsAppLink()} target="_blank" rel="noreferrer">
-                  <MessageCircle className="size-5" />
+                  <IconBrandWhatsapp className="size-5" />
                   Hubungi Kontak Official via WhatsApp
                 </a>
               </Button>

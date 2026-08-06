@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckCircle2, MessageCircle } from "lucide-react";
+import { IconCircleCheck, IconBrandWhatsapp } from "@tabler/icons-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ctaLabels, partnerships, partnershipSection } from "@/constants/content";
@@ -19,10 +19,8 @@ export function PartnershipSection() {
         }}
       />
       <Aurora variant="ember" className="opacity-20" />
-      <div className="absolute inset-0 z-0 pointer-events-none bg-pattern-dots-dark opacity-60" />
       <div className="container relative z-10">
         <SectionHeader
-          eyebrow={partnershipSection.eyebrow}
           title={partnershipSection.title}
           description={partnershipSection.description}
           dark
@@ -48,7 +46,7 @@ export function PartnershipSection() {
                   <div className="inline-flex rounded-full bg-mki-gradient px-4 py-2 text-xs font-extrabold uppercase tracking-wide text-white">
                     {item.label}
                   </div>
-                  <h3 className="mt-6 font-display text-3xl font-semibold leading-[1.08] tracking-tightest text-white md:text-5xl">
+                  <h3 className="mt-6 font-display text-3xl font-semibold leading-[1.08] tracking-tightest text-white md:text-[3rem]">
                     {item.title}
                   </h3>
                   <p className="mt-5 text-base leading-8 text-white/70">{item.description}</p>
@@ -63,7 +61,7 @@ export function PartnershipSection() {
                   <Magnetic className="mt-8 inline-block">
                     <Button asChild size="lg">
                       <a href={createWhatsAppLink({ category: item.label }, { recipient: "partnership" })} target="_blank" rel="noreferrer">
-                        <MessageCircle className="size-5" />
+                        <IconBrandWhatsapp className="size-5" />
                         {ctaLabels.partnership}
                       </a>
                     </Button>
@@ -72,7 +70,7 @@ export function PartnershipSection() {
                 <div className="grid gap-4 sm:grid-cols-2">
                   {item.points.map((point) => (
                     <div key={point} className="rounded-2xl border border-white/10 bg-white/[0.05] p-5 transition-colors hover:border-mki-orange/30">
-                      <CheckCircle2 className="mb-5 size-6 text-mki-orange" />
+                      <IconCircleCheck className="mb-5 size-6 text-mki-orange" />
                       <p className="text-sm font-bold leading-6 text-white/90">{point}</p>
                     </div>
                   ))}

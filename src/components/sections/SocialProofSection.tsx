@@ -56,11 +56,9 @@ export function SocialProofSection() {
   return (
     <section className="section-padding bg-secondary/50 relative overflow-hidden">
       <Aurora variant="soft" />
-      <div className="absolute inset-0 z-0 pointer-events-none bg-pattern-dots opacity-60" />
       <div className="container relative z-10">
         <Parallax distance={28}>
           <SectionHeader
-            eyebrow={socialProofSection.eyebrow}
             title={socialProofSection.title}
             description={socialProofSection.description}
             highlight={[2]}

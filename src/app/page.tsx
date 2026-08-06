@@ -17,7 +17,7 @@ const ContactSection = dynamic(() => import("@/components/sections/ContactSectio
 
 export default function Home() {
   return (
-    <main id="home">
+    <main>
       <HeroSection />
       <StatsSection />
       <AboutSection />

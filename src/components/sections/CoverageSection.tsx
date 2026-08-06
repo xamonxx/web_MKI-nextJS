@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { MapPin } from "lucide-react";
+import { IconMapPin } from "@tabler/icons-react";
 import { SectionHeader } from "@/components/sections/SectionHeader";
 import { Reveal } from "@/components/sections/Reveal";
 import { Parallax } from "@/components/motion/Parallax";
@@ -8,11 +8,9 @@ import { coverageCities, coverageSection } from "@/constants/content";
 export function CoverageSection() {
   return (
     <section className="section-padding bg-background relative overflow-hidden">
-      <div className="absolute inset-0 z-0 pointer-events-none bg-pattern-grid opacity-60" />
       <div className="container relative z-10 grid items-center gap-12 lg:grid-cols-[1fr_0.95fr]">
         <Reveal>
           <SectionHeader
-            eyebrow={coverageSection.eyebrow}
             title={coverageSection.title}
             description={coverageSection.description}
             align="left"
@@ -51,7 +49,7 @@ export function CoverageSection() {
             <div className="absolute bottom-5 left-5 right-5 rounded-2xl border border-white/20 bg-card/95 p-5 backdrop-blur">
               <div className="flex items-center gap-3">
                 <span className="inline-flex size-10 items-center justify-center rounded-full bg-mki-gradient text-white">
-                  <MapPin className="size-5" />
+                  <IconMapPin className="size-5" />
                 </span>
                 <div>
                   <p className="text-sm font-extrabold text-foreground">{coverageSection.highlights[0].value}</p>

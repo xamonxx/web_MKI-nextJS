@@ -1,44 +1,44 @@
 import {
-  BadgeCheck,
-  Archive,
-  BedDouble,
-  BriefcaseBusiness,
-  Building2,
-  CheckCircle2,
-  Factory,
-  Hammer,
-  Home,
-  MapPin,
-  MessageCircle,
-  Ruler,
-  ShieldCheck,
-  Sparkles,
-  PanelTop,
-  Users,
-  UtensilsCrossed,
-  Workflow,
-} from "lucide-react";
+  IconCircleCheckFilled,
+  IconShirt,
+  IconBed,
+  IconBriefcase,
+  IconBuilding,
+  IconCircleCheck,
+  IconBuildingFactory2,
+  IconHammer,
+  IconHome,
+  IconMapPin,
+  IconBrandWhatsapp,
+  IconRuler,
+  IconShieldCheck,
+  IconSparkles,
+  IconStairs,
+  IconUsers,
+  IconToolsKitchen2,
+  IconTimeline,
+} from "@tabler/icons-react";
 import type { IconName } from "@/constants/types";
 
 const icons = {
-  badgeCheck: BadgeCheck,
-  bed: BedDouble,
-  briefcase: BriefcaseBusiness,
-  building: Building2,
-  checkCircle: CheckCircle2,
-  factory: Factory,
-  hammer: Hammer,
-  home: Home,
-  mapPin: MapPin,
-  message: MessageCircle,
-  ruler: Ruler,
-  shield: ShieldCheck,
-  sparkles: Sparkles,
-  stairs: PanelTop,
-  users: Users,
-  utensils: UtensilsCrossed,
-  wardrobe: Archive,
-  workflow: Workflow,
+  badgeCheck: IconCircleCheckFilled,
+  bed: IconBed,
+  briefcase: IconBriefcase,
+  building: IconBuilding,
+  checkCircle: IconCircleCheck,
+  factory: IconBuildingFactory2,
+  hammer: IconHammer,
+  home: IconHome,
+  mapPin: IconMapPin,
+  message: IconBrandWhatsapp,
+  ruler: IconRuler,
+  shield: IconShieldCheck,
+  sparkles: IconSparkles,
+  stairs: IconStairs,
+  users: IconUsers,
+  utensils: IconToolsKitchen2,
+  wardrobe: IconShirt,
+  workflow: IconTimeline,
 };
 
 type IconProps = {
@@ -47,7 +47,7 @@ type IconProps = {
 };
 
 export function Icon({ name, className }: IconProps) {
-  const LucideIcon = icons[name];
+  const TablerIcon = icons[name];
 
-  return <LucideIcon aria-hidden className={className} />;
+  return <TablerIcon aria-hidden stroke={2} className={className} />;
 }

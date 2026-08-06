@@ -559,6 +559,11 @@ export const clientLogos: LogoItem[] = [
     logo: "/images/brand/Dekorinterior.jpg",
     href: "https://www.instagram.com/dekorinterior_/",
   },
+  {
+    name: "Broto Interior",
+    descriptor: "Interior Partner",
+    logo: "/images/brand/broto interior.png",
+  },
 ];
 
 export const faqSection = {

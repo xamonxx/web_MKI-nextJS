@@ -19,7 +19,7 @@ const nextConfig: NextConfig = {
   ],
   // Tree-shake icon/animation libraries — eliminates unused exports
   experimental: {
-    optimizePackageImports: ["lucide-react", "motion"],
+    optimizePackageImports: ["@tabler/icons-react", "motion"],
   },
 };
 

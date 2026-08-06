@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { IconMail, IconMapPin, IconPhone } from "@tabler/icons-react";
 import { Logo } from "@/components/layout/Logo";
 import { company } from "@/constants/company";
 import { footerContent } from "@/constants/content";
@@ -39,25 +39,25 @@ export function Footer() {
           <h3 className="text-sm font-extrabold text-white">{footerContent.contact}</h3>
           <div className="mt-5 grid gap-4 text-sm text-white/60">
             <a className="flex min-w-0 gap-3 transition hover:text-white" href={createWhatsAppLink()} target="_blank" rel="noreferrer">
-              <Phone className="mt-0.5 size-4 shrink-0 text-mki-orange" />
+              <IconPhone className="mt-0.5 size-4 shrink-0 text-mki-orange" />
               <span className="min-w-0">
                 <span className="block text-xs font-bold uppercase tracking-wide text-white/40">Kontak Official</span>
                 <span className="block break-words">{company.phone}</span>
               </span>
             </a>
             <a className="flex min-w-0 gap-3 transition hover:text-white" href={createWhatsAppLink(undefined, { recipient: "partnership" })} target="_blank" rel="noreferrer">
-              <Phone className="mt-0.5 size-4 shrink-0 text-mki-orange" />
+              <IconPhone className="mt-0.5 size-4 shrink-0 text-mki-orange" />
               <span className="min-w-0">
                 <span className="block text-xs font-bold uppercase tracking-wide text-white/40">WhatsApp Kemitraan</span>
                 <span className="block break-words">{company.partnershipPhone}</span>
               </span>
             </a>
             <a className="flex min-w-0 gap-3 transition hover:text-white" href={`mailto:${company.email}`}>
-              <Mail className="mt-0.5 size-4 shrink-0 text-mki-orange" />
+              <IconMail className="mt-0.5 size-4 shrink-0 text-mki-orange" />
               <span className="min-w-0 break-words">{company.email}</span>
             </a>
             <a className="flex min-w-0 gap-3 transition hover:text-white" href={company.mapUrl} target="_blank" rel="noreferrer">
-              <MapPin className="mt-0.5 size-4 shrink-0 text-mki-orange" />
+              <IconMapPin className="mt-0.5 size-4 shrink-0 text-mki-orange" />
               <span className="min-w-0 break-words">{company.address}</span>
             </a>
             <div className="mt-1 overflow-hidden rounded-xl border border-white/10 bg-white/5 p-1">

@@ -98,13 +98,6 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "WebSite",
-      "@id": `${company.siteUrl}/#website`,
-      "name": "PT Menuju Keindahan Indonesia",
-      "alternateName": ["MKI", "PT MKI"],
-      "url": company.siteUrl
-    },
-    {
       "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
       "@id": `${company.siteUrl}/#organization`,
       name: company.name,
@@ -219,6 +212,7 @@ const jsonLd = {
       "@id": `${company.siteUrl}/#website`,
       url: company.siteUrl,
       name: company.name,
+      alternateName: ["MKI", "PT MKI"],
       description: company.description,
       inLanguage: "id-ID",
       potentialAction: {

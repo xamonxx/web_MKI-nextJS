@@ -1,11 +1,10 @@
-import Link from "next/link";
-import { MessageCircle } from "lucide-react";
+import { IconBrandWhatsapp } from "@tabler/icons-react";
 import { Logo } from "@/components/layout/Logo";
+import { NavLinks } from "@/components/layout/NavLinks";
 import { MobileMenu } from "@/components/layout/MobileMenu";
 import { ThemeToggle } from "@/components/layout/ThemeToggle";
 import { Button } from "@/components/ui/button";
 import { ctaLabels } from "@/constants/content";
-import { navigationItems } from "@/constants/navigation";
 import { createWhatsAppLink } from "@/lib/whatsapp";
 
 export function Navbar() {
@@ -13,22 +12,12 @@ export function Navbar() {
     <header className="fixed left-0 right-0 top-0 z-40 border-b border-border bg-background/85 backdrop-blur-xl dark:bg-background/90">
       <div className="container grid h-[76px] grid-cols-[auto_auto] items-center justify-between gap-4 xl:grid-cols-[minmax(120px,auto)_1fr_auto]">
         <Logo compact />
-        <nav className="hidden min-w-0 items-center justify-center gap-1 xl:flex">
-          {navigationItems.map((item) => (
-            <Link
-              href={item.href}
-              key={item.href}
-              className="whitespace-nowrap rounded-full px-3 py-2 text-sm font-bold text-mki-gray transition hover:bg-secondary hover:text-foreground 2xl:px-4"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+        <NavLinks />
         <div className="hidden items-center gap-3 justify-self-end xl:flex">
           <ThemeToggle />
           <Button asChild>
             <a href={createWhatsAppLink()} target="_blank" rel="noreferrer">
-              <MessageCircle className="size-4" />
+              <IconBrandWhatsapp className="size-4" />
               {ctaLabels.consult}
             </a>
           </Button>

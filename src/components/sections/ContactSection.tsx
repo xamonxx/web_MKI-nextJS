@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 import { FormEvent, useState } from "react";
-import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { IconMail, IconMapPin, IconBrandWhatsapp, IconPhone } from "@tabler/icons-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Select } from "@/components/ui/select";
+import { Combobox } from "@/components/ui/combobox";
 import { Textarea } from "@/components/ui/textarea";
 import { SectionHeader } from "@/components/sections/SectionHeader";
 import { Aurora } from "@/components/motion/Aurora";
@@ -66,7 +66,6 @@ export function ContactSection() {
         }}
       />
       <Aurora variant="ember" className="opacity-20" />
-      <div className="absolute inset-0 z-0 pointer-events-none bg-pattern-dots-dark opacity-50" />
       <div className="container relative z-10">
         <SectionHeader
           eyebrow={contactSection.eyebrow}
@@ -111,13 +110,12 @@ export function ContactSection() {
               </label>
               <label className="grid gap-2 text-sm font-bold text-foreground">
                 {contactSection.form.category}
-                <Select value={form.category} onChange={(event) => setForm((current) => ({ ...current, category: event.target.value }))}>
-                  {contactSection.categories.map((category) => (
-                    <option key={category} value={category}>
-                      {category}
-                    </option>
-                  ))}
-                </Select>
+                <Combobox
+                  value={form.category}
+                  onChange={(category) => setForm((current) => ({ ...current, category }))}
+                  options={contactSection.categories}
+                  placeholder="Pilih atau ketik kategori"
+                />
               </label>
               <label className="grid gap-2 text-sm font-bold text-foreground">
                 {contactSection.form.location}
@@ -137,7 +135,7 @@ export function ContactSection() {
               </label>
             </div>
             <Button className="mt-6 w-full" size="lg" type="submit">
-              <MessageCircle className="size-5" />
+              <IconBrandWhatsapp className="size-5" />
               {ctaLabels.sendWhatsApp}
             </Button>
           </form>
@@ -145,25 +143,25 @@ export function ContactSection() {
             <h3 className="font-display text-2xl font-semibold">{contactSection.infoTitle}</h3>
             <div className="mt-8 grid gap-5">
               <a className="flex min-w-0 gap-4 rounded-2xl bg-white/10 p-5 transition hover:bg-white/15" href={createWhatsAppLink()} target="_blank" rel="noreferrer">
-                <Phone className="mt-0.5 size-5 shrink-0 text-mki-orange" />
+                <IconPhone className="mt-0.5 size-5 shrink-0 text-mki-orange" />
                 <span className="min-w-0 text-sm leading-7 text-white/75">
                   <span className="block font-bold text-white">Kontak Official</span>
                   <span className="break-words">{company.phone}</span>
                 </span>
               </a>
               <a className="flex min-w-0 gap-4 rounded-2xl bg-white/10 p-5 transition hover:bg-white/15" href={createWhatsAppLink(undefined, { recipient: "partnership" })} target="_blank" rel="noreferrer">
-                <Phone className="mt-0.5 size-5 shrink-0 text-mki-orange" />
+                <IconPhone className="mt-0.5 size-5 shrink-0 text-mki-orange" />
                 <span className="min-w-0 text-sm leading-7 text-white/75">
                   <span className="block font-bold text-white">Kontak Kemitraan</span>
                   <span className="break-words">{company.partnershipPhone}</span>
                 </span>
               </a>
               <a className="flex min-w-0 gap-4 rounded-2xl bg-white/10 p-5 transition hover:bg-white/15" href={`mailto:${company.email}`}>
-                <Mail className="mt-0.5 size-5 shrink-0 text-mki-orange" />
+                <IconMail className="mt-0.5 size-5 shrink-0 text-mki-orange" />
                 <span className="min-w-0 break-words text-sm leading-7 text-white/75">{company.email}</span>
               </a>
               <a className="flex min-w-0 gap-4 rounded-2xl bg-white/10 p-5 transition hover:bg-white/15" href={company.mapUrl} target="_blank" rel="noreferrer">
-                <MapPin className="mt-0.5 size-5 shrink-0 text-mki-orange" />
+                <IconMapPin className="mt-0.5 size-5 shrink-0 text-mki-orange" />
                 <span className="min-w-0 break-words text-sm leading-7 text-white/75">{company.address}</span>
               </a>
             </div>

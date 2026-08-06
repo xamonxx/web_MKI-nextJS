@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { useSafeReducedMotion } from "@/lib/motion";
 
 type SectionHeaderProps = {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   description?: string;
   align?: "left" | "center";
@@ -40,12 +40,15 @@ export function SectionHeader({
 
   return (
     <div className={cn("max-w-3xl", align === "center" ? "mx-auto text-center" : "text-left")}>
-      <motion.div {...fade(0)} className={cn(align === "center" && "flex justify-center")}>
-        <Badge className={dark ? "border-white/15 bg-white/10 text-white" : undefined}>{eyebrow}</Badge>
-      </motion.div>
+      {eyebrow ? (
+        <motion.div {...fade(0)} className={cn(align === "center" && "flex justify-center")}>
+          <Badge className={dark ? "border-white/15 bg-white/10 text-white" : undefined}>{eyebrow}</Badge>
+        </motion.div>
+      ) : null}
       <h2
         className={cn(
-          "mt-6 font-display text-[2rem] font-semibold leading-[1.08] tracking-tightest md:text-5xl lg:text-[3.4rem]",
+          "font-display text-[2rem] font-semibold leading-[1.08] tracking-tightest md:text-[3rem] lg:text-[3.4rem]",
+          eyebrow && "mt-6",
           dark ? "text-white" : "text-foreground",
         )}
       >

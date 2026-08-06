@@ -1,6 +1,6 @@
 "use client";
 
-import { Menu } from "lucide-react";
+import { IconMenu2 } from "@tabler/icons-react";
 import Link from "next/link";
 import { Logo } from "@/components/layout/Logo";
 import { Button } from "@/components/ui/button";
@@ -14,7 +14,7 @@ export function MobileMenu() {
     <Sheet>
       <SheetTrigger asChild>
         <Button variant="secondary" size="icon" className="xl:hidden" aria-label="Buka menu">
-          <Menu className="size-5" />
+          <IconMenu2 className="size-5" />
         </Button>
       </SheetTrigger>
       <SheetContent>
